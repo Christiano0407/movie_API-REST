@@ -23,11 +23,13 @@
   }
   .header--nav .nav-btn {
     border-radius: 50%;
-    border: none;
     outline: none;
   }
   .nav-btn i {
     color: #fff;
+  }
+  .nav-btn:hover {
+    border: 2px solid var(--background-color-secondary);
   }
   .header .header--nav {
     width: 90%;
@@ -76,7 +78,7 @@
   .logo-movie .logo-text {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--background-color-secondary);
   }
 }
 

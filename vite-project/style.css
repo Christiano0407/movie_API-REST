@@ -160,13 +160,15 @@ button {
   color: var(--clr-white);
 }
 button:hover {
-  border-color: var(--background-color-primary-plus-one);
+  background-color: #1a1a1a;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+button:active {
+  transform: scale(0.9);
+}
 /* === APP Movie ===  */
 .app {
   width: 100%;
