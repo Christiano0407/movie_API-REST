@@ -25,3 +25,7 @@ dist-ssr
 
 # node
 node_modules
+
+# Secret (API KEY & Token)
+/src/secret/secret.js
+
