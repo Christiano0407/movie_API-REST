@@ -28,7 +28,77 @@
     <title>Vite App | Movie Web App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" class="app">
+      <header id="header" class="header">
+        <div class="arrow inactive">
+          <span class="header-arrow inactive">&lt;</span>
+        </div>
+
+        <nav id="idNav" class="header--nav">
+          <button class="nav-btn">
+            <a href=""><i class="fa-solid fa-bars"></i></a>
+            <!-- <i class="fa-solid fa-xmark"></i> -->
+          </button>
+
+          <div class="nav-add inactive">
+            <ul class="nav-add__list">
+              <li class="nav-list__element">
+                <a href="" class="nav-element__link">Movies</a>
+              </li>
+              <li class="nav-list__element">
+                <a href="" class="nav-element__link">Series</a>
+              </li>
+              <li class="nav-list__element">
+                <a href="" class="nav-element__link">MyList</a>
+              </li>
+              <li class="nav-list__element">
+                <a href="" class="nav-element__link">Plus TV</a>
+              </li>
+              <li class="nav-list__element">
+                <a href="" class="nav-element__link">Plans</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="logo">
+          <div class="logo-movie">
+            <a href="" class="logo-icon">
+              <i class="fa-solid fa-camera-movie"></i>
+            </a>
+            <p class="logo-text">Movie Up</p>
+          </div>
+        </div>
+
+        <div class="header-categorie inactive">
+          <h1 class="header-title header-title--categoryView inactive">
+            Action
+          </h1>
+        </div>
+
+        <form action="" id="searchForm" class="header--searchForm">
+          <input type="text" placeholder="Search your Movie & Series..." />
+          <button id="searchBtn" class="header--formBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <div class="header-user">
+          <div class="header-user__main">
+            <figure class="figure-user">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=461&q=80"
+                alt="image-user"
+              />
+            </figure>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="main"></main>
+
+      <footer id="footer" class="footer"></footer>
+    </div>
 
     <!-- === Javascript Add ===  -->
     <script

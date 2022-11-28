@@ -3,10 +3,29 @@
 }
 
 @media (max-width: 480px) {
+  .app {
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+
+    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }
 
 /*=============== #Option ========================================*/
 @media (min-width: 700px) {
+  .app {
+    grid-template-areas:
+      'header header header header'
+      'main   main   main   main'
+      'footer footer footer footer';
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px 1fr));
+    gap: 1rem;
+  }
 }
 
 /*=============== Tablet  ========================================*/

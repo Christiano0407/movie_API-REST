@@ -91,6 +91,13 @@ img {
   object-fit: cover;
 }
 
+figure-user {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 p,
 span {
   letter-spacing: 0.1rem;
@@ -111,10 +118,10 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  /*  max-width: 1280px; */
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1rem;
 }
 
 .logo {
@@ -156,4 +163,34 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* === APP Movie ===  */
+.app {
+  width: 100%;
+  display: grid;
+}
+
+.app > .header {
+  grid-area: header;
+  outline: 4px solid red;
+}
+
+.app > .main {
+  grid-area: main;
+  outline: 4px solid violet;
+}
+
+.app > .footer {
+  grid-area: footer;
+  outline: 4px solid blue;
+}
+
+/* === Active & Inactive === */
+.inactive {
+  display: none;
+}
+.active {
+  visibility: visible;
+  /*  hidden */
 }
