@@ -9,27 +9,98 @@
       'main'
       'footer';
 
-    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 1.5rem;
+  }
+  .header {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+  .header--nav .nav-btn {
+    border-radius: 50%;
+    border: none;
+    outline: none;
+  }
+  .nav-btn i {
+    color: #fff;
+  }
+  .header .header--nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  .header .header-form {
+    width: 100%;
+  }
+  .header--searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .inputForm {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+  }
+  .header--formBtn {
+    border: none;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+  .logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .logo .logo-movie {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .logo-icon {
+    color: #fff;
+    margin-right: 1rem;
+  }
+  .logo-icon i {
+    font-size: 2.8rem;
+  }
+  .logo-movie .logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
   }
 }
 
 /*=============== #Option ========================================*/
 @media (min-width: 700px) {
-  .app {
-    grid-template-areas:
-      'header header header header'
-      'main   main   main   main'
-      'footer footer footer footer';
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(150px 1fr));
-    gap: 1rem;
-  }
 }
 
 /*=============== Tablet  ========================================*/
 @media screen and (min-width: 768px) {
+  .app {
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px 1fr));
+    gap: 1rem;
+  }
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /*=============== Screen Laptop ===================================*/

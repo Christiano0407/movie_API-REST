@@ -30,11 +30,11 @@
   <body>
     <div id="app" class="app">
       <header id="header" class="header">
-        <div class="arrow inactive">
-          <span class="header-arrow inactive">&lt;</span>
-        </div>
-
         <nav id="idNav" class="header--nav">
+          <div class="arrow inactive">
+            <span class="header-arrow inactive">&lt;</span>
+          </div>
+
           <button class="nav-btn">
             <a href=""><i class="fa-solid fa-bars"></i></a>
             <!-- <i class="fa-solid fa-xmark"></i> -->
@@ -59,39 +59,45 @@
               </li>
             </ul>
           </div>
+
+          <div class="logo">
+            <div class="logo-movie">
+              <a href="" class="logo-icon">
+                <i class="fa-solid fa-film"></i>
+              </a>
+              <p class="logo-text">Movie Up</p>
+            </div>
+          </div>
+
+          <div class="header-user">
+            <div class="header-user__main">
+              <figure class="figure-user">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=461&q=80"
+                  alt="image-user"
+                />
+              </figure>
+            </div>
+          </div>
+
+          <div class="header-categorie inactive">
+            <h1 class="header-title header-title--categoryView inactive">
+              Action
+            </h1>
+          </div>
         </nav>
 
-        <div class="logo">
-          <div class="logo-movie">
-            <a href="" class="logo-icon">
-              <i class="fa-solid fa-camera-movie"></i>
-            </a>
-            <p class="logo-text">Movie Up</p>
-          </div>
-        </div>
-
-        <div class="header-categorie inactive">
-          <h1 class="header-title header-title--categoryView inactive">
-            Action
-          </h1>
-        </div>
-
-        <form action="" id="searchForm" class="header--searchForm">
-          <input type="text" placeholder="Search your Movie & Series..." />
-          <button id="searchBtn" class="header--formBtn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-
-        <div class="header-user">
-          <div class="header-user__main">
-            <figure class="figure-user">
-              <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=461&q=80"
-                alt="image-user"
-              />
-            </figure>
-          </div>
+        <div class="header-form">
+          <form action="" id="searchForm" class="header--searchForm">
+            <input
+              class="inputForm"
+              type="text"
+              placeholder="Search your Movie & Series..."
+            />
+            <button id="searchBtn" class="header--formBtn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
         </div>
       </header>
 
