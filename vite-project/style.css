@@ -1,3 +1,6 @@
+/*@import url(./src/css/media.css);*/
+
+/*=============== Design System ========================================*/
 :root {
   /* == Project Font Movie ==*/
   /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
@@ -122,6 +125,7 @@ h1 {
   color: #888;
 }
 
+/*=============== Mobile Button ========================================*/
 button {
   border-radius: 0.5rem;
   border: 1px solid transparent;
@@ -139,29 +143,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
-/* =Animation =*/
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }

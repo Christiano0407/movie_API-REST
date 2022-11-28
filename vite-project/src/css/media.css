@@ -1,0 +1,57 @@
+/*=============== Mobile ========================================*/
+@media (max-width: 360px) {
+}
+
+@media (max-width: 480px) {
+}
+
+/*=============== #Option ========================================*/
+@media (min-width: 700px) {
+}
+
+/*=============== Tablet  ========================================*/
+@media screen and (min-width: 768px) {
+}
+
+/*=============== Screen Laptop ===================================*/
+@media screen and (min-width: 1024px) {
+}
+
+/*=============== #Option ===================================*/
+@media only screen and (min-width: 1200px) {
+}
+
+/*=============== Laptop Large  ===================================*/
+@media only screen and (min-width: 1440px) {
+}
+
+/*=============== Laptop Xtra Large =================================*/
+@media only screen and (min-width: 1920px) {
+}
+
+/* =Animation =*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* = Option Add =*/
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
