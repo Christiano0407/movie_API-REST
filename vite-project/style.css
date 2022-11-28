@@ -28,8 +28,20 @@
   --clr-black: #000;
   --clr-black-two: #333;
   --color-scheme: light dark;
-  --color: rgba(255, 255, 255, 0.87);
+  /* == Project Color Movie Principal ==*/
+  --background-color-primary: #4d49bf;
+  --background-color-primary-plus: #412f59;
+  --background-color-primary-plus-one: #646cff;
+  --background-color-secondary: #55ccd9;
+  --background-color-secondary-plus: #41d9bd;
+  --background-color-complement: #abbf60;
+  --background-color-complement-plus: #bad94a;
+  --background-color-green: #0dd965;
+  --background-color-blue: #3350a6;
+  --background-color-rose: #d90467;
+  /* == Project Color & Background Movie ==*/
   --background-color: #242424;
+  --color: rgba(255, 255, 255, 0.87);
   /* == Margin*/
   --margin: 2rem auto;
   --margin-left: 2rem;
@@ -133,12 +145,13 @@ button {
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  background-color: var(--background-color-secondary);
+  color: var(--clr-white);
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--background-color-primary-plus-one);
 }
 button:focus,
 button:focus-visible {
