@@ -4,7 +4,7 @@
 :root {
   /* == Project Font Movie ==*/
   /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: 'Montserrat', sans-serif;
+  --font-family: 'Montserrat', sans-serif;
   --font-family-roboto: 'Roboto', sans-serif;
   /*=== Font Size*/
   --font-title: 1.8rem;
@@ -106,7 +106,7 @@ span {
 
 body {
   width: 100%;
-  font-family: inherit;
+  font-family: var(--font-family);
   background-color: #1a1a1a;
   /* display: flex;
   place-items: center;
