@@ -1,7 +1,7 @@
 //import './style.css';
 //** === === Movie App === === */
 //*! === Import === */
-import { API_KEY, Token } from './src/secret/secret.js';
+//import { API_KEY, Token } from './src/secret/secret.js';
 
 const navigationAdd = document.querySelector(`#idNavAdd`);
 const idNavBtn = document.querySelector('#idNavBtn');
