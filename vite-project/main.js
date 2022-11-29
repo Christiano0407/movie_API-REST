@@ -30,8 +30,26 @@ const getTrendingMovies = async () => {
     `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
   );
   const data = await response.json();
-  console.log(data);
+  //console.log(data);
   // console.log(data.results[0].id);
+
+  if (response.status === 200) {
+    let trends = ' ';
+
+    data.results.forEach((image) => {
+      trends += `
+        <div class="trend-img">
+            <figure>
+              <img src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
+            </figure>
+            <h3 class="title">${image.title}</h3>
+        </div>
+      `;
+    });
+
+    trendingPreview.append(articleTrendingPreview);
+    articleTrendingPreview.innerHTML = trends;
+  }
 };
 
 getTrendingMovies();

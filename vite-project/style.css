@@ -221,6 +221,18 @@ article {
   padding: 0.5rem;
 }
 
+/* .trendingPreview-movieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  gap: 1rem; 
+    overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 241px;
+} */
+
 footer {
   width: 100%;
   display: grid;
