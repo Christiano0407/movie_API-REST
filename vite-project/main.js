@@ -1,12 +1,15 @@
 //import './style.css';
 //** === === Movie App === === */
 //*! === Import === */
-//import { API_KEY, Token } from './src/secret/secret.js';
+import { API_KEY } from './src/secret/secret.js';
 
-const navigationAdd = document.querySelector(`#idNavAdd`);
+const navigationAdd = document.getElementById(`idNavAdd`);
 const idNavBtn = document.querySelector('#idNavBtn');
-const iconBtn = document.querySelector(`#iconBtn`);
+//const iconBtn = document.querySelector(`#iconBtn`);
+const trendingPreview = document.querySelector(`#trendingPreview`);
+const articleTrendingPreview = document.querySelector(`#idTrendingPreview`);
 
+//*? === >> BTN Burger Nav << === */
 const addNavigation = () => {
   console.log('Click');
 
@@ -18,3 +21,17 @@ const addNavigation = () => {
 };
 
 idNavBtn.addEventListener('click', addNavigation);
+
+//*? === >>> Fetch Trending Preview Movies <<< ===  */
+//https://api.themoviedb.org/3/movie/550?api_key=c66eb9e2b42b5d1d179fff7ac34ce71f
+
+const getTrendingMovies = async () => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  console.log(data);
+  // console.log(data.results[0].id);
+};
+
+getTrendingMovies();
