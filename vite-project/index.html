@@ -31,35 +31,45 @@
     <div id="app" class="app">
       <header id="header" class="header">
         <nav id="idNav" class="header--nav">
+          <!-- === Mobile Arrow === -->
           <div class="arrow inactive">
             <span class="header-arrow inactive">&lt;</span>
           </div>
-
+          <!-- === Mobile Button ===-->
           <button id="idNavBtn" class="nav-btn">
-            <a href=""><i class="fa-solid fa-bars"></i></a>
+            <i id="iconBtn" class="fa-solid fa-bars"></i>
             <!-- <i class="fa-solid fa-xmark"></i> -->
           </button>
+
+          <div class="logo-plus">
+            <div class="logo-movie--plus">
+              <a href="" class="logo-icon--plus">
+                <i class="fa-solid fa-film"></i>
+              </a>
+              <p class="logo-text--plus">Movie Up</p>
+            </div>
+          </div>
 
           <div id="idNavAdd" class="nav-add inactive">
             <ul class="nav-add__list">
               <li class="nav-list__element">
-                <a href="" class="nav-element__link">Movies</a>
+                <a href="" class="nav-element__link"><span>Movies</span></a>
               </li>
               <li class="nav-list__element">
-                <a href="" class="nav-element__link">Series</a>
+                <a href="" class="nav-element__link"><span>Series</span></a>
               </li>
               <li class="nav-list__element">
-                <a href="" class="nav-element__link">MyList</a>
+                <a href="" class="nav-element__link"><span>MyList</span></a>
               </li>
               <li class="nav-list__element">
-                <a href="" class="nav-element__link">Plus TV</a>
+                <a href="" class="nav-element__link"><span>Live</span></a>
               </li>
               <li class="nav-list__element">
-                <a href="" class="nav-element__link">Plans</a>
+                <a href="" class="nav-element__link"><span>Membership</span></a>
               </li>
             </ul>
           </div>
-
+          <!-- === Mobile Logo === -->
           <div class="logo">
             <div class="logo-movie">
               <a href="" class="logo-icon">
@@ -68,7 +78,7 @@
               <p class="logo-text">Movie Up</p>
             </div>
           </div>
-
+          <!-- === Mobile User === -->
           <div class="header-user">
             <div class="header-user__main">
               <figure class="figure-user">
@@ -79,7 +89,7 @@
               </figure>
             </div>
           </div>
-
+          <!-- === Mobile BTN Categories === -->
           <div class="header-categorie inactive">
             <h1 class="header-title header-title--categoryView inactive">
               Action
@@ -90,6 +100,7 @@
         <div class="header-form">
           <form action="" id="searchForm" class="header--searchForm">
             <input
+              id="idInput"
               class="inputForm"
               type="text"
               placeholder="Search your Movie & Series..."
@@ -98,6 +109,17 @@
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
+        </div>
+
+        <div id="idUserPlus" class="header-use--plus">
+          <div class="header-user--plus__main">
+            <figure class="figure-user--plus">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=461&q=80"
+                alt="image-user"
+              />
+            </figure>
+          </div>
         </div>
       </header>
 

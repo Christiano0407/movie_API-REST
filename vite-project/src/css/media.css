@@ -38,6 +38,33 @@
     align-items: center;
     padding: 0.5rem;
   }
+  .nav-add {
+    position: absolute;
+    width: 80%;
+    height: 35rem;
+    top: 22.5%;
+    right: 10%;
+    outline: 4px solid var(--background-color-secondary);
+    border-radius: 1rem;
+  }
+  .nav-add__list {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .nav-element__link span {
+    color: #f2f2f2;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  .nav-element__link span:hover {
+    color: var(--background-color-secondary);
+  }
+
   .header .header-form {
     width: 100%;
   }
@@ -46,6 +73,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 1rem auto;
   }
   .inputForm {
     padding: 1rem;
@@ -80,9 +108,18 @@
     font-weight: 700;
     color: var(--background-color-secondary);
   }
+  .logo-plus {
+    display: none;
+  }
+  .header-use--plus {
+    display: none;
+  }
 }
 
 /*=============== #Option ========================================*/
+@media (min-width: 481px) and (max-width: 765px) {
+}
+
 @media (min-width: 700px) {
 }
 
@@ -102,6 +139,87 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+  }
+  .header--nav {
+    width: 60%;
+    display: flex;
+    /*  justify-content: space-between; */
+    align-items: center;
+    padding: 0.5rem;
+  }
+  .nav-btn {
+    display: none;
+  }
+  .header-form {
+    /*  width: 30%; */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  #idNavAdd {
+    width: 70%;
+    display: flex;
+  }
+  .nav-add__list {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .nav-element__link span {
+    font-size: 1.2rem;
+    color: #f2f2f2;
+    font-weight: 500;
+  }
+  .nav-element__link span:hover {
+    color: var(--background-color-secondary);
+    cursor: pointer;
+  }
+  .logo {
+    display: none;
+  }
+  .logo-plus {
+    margin-left: 0.5rem;
+  }
+  .logo-movie--plus {
+    display: flex;
+    align-items: center;
+  }
+  .logo-icon--plus i {
+    font-size: 3.5rem;
+    color: var(--background-color-secondary);
+  }
+  .logo-text--plus {
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    color: #f2f2f2;
+    font-weight: 500;
+  }
+  .header-user {
+    display: none;
+  }
+  #idUserPlus {
+    margin-right: 1.5rem;
+  }
+  .figure-user--plus {
+    width: 3rem;
+    height: 3rem;
+  }
+  #searchForm {
+    display: flex;
+    align-items: center;
+  }
+  #idInput {
+    width: 10rem;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    outline: none;
+  }
+  #searchBtn {
+    padding: 0.5rem;
   }
 }
 

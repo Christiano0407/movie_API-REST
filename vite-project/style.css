@@ -194,9 +194,12 @@ button:active {
 .inactive {
   display: none;
 }
-.active {
+.visible {
   visibility: visible;
   /*  hidden */
+}
+.active {
+  display: flex;
 }
 
 .main {
