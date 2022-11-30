@@ -8,6 +8,7 @@ const idNavBtn = document.querySelector('#idNavBtn');
 //const iconBtn = document.querySelector(`#iconBtn`);
 const trendingPreview = document.querySelector(`#trendingPreview`);
 const articleTrendingPreview = document.querySelector(`#idTrendingPreview`);
+const idMoviesContainer = document.querySelector(`#idMoviesContainer`);
 
 //*? === >> BTN Burger Nav << === */
 const addNavigation = () => {
@@ -38,17 +39,18 @@ const getTrendingMovies = async () => {
 
     data.results.forEach((image) => {
       trends += `
-        <div class="trend-img">
-            <figure>
-              <img src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
-            </figure>
-            <h3 class="title">${image.title}</h3>
-        </div>
+      <div class="movie-container">
+          <div class="slider-trending">
+              <figure>
+                <img src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
+              </figure>
+          </div>
+      </div>
       `;
     });
-
-    trendingPreview.append(articleTrendingPreview);
-    articleTrendingPreview.innerHTML = trends;
+    //<h3 class="title">${image.title}</h3>;
+    /*  articleTrendingPreview.append(idMoviesContainer); */
+    idMoviesContainer.innerHTML = trends;
   }
 };
 

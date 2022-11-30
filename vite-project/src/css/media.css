@@ -117,6 +117,10 @@
   .header-use--plus {
     display: none;
   }
+  .figure-user img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
 
   /* === Main === */
   main {
@@ -147,24 +151,33 @@
     margin: 2rem auto;
   }
   .trendingPreview-movieList {
-    /*  overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    height: 30rem;
-    position: fixed; */
-    width: 90%;
+    /* overflow: hidden; */
+    display: flex;
+    /* width: 40rem; */
   }
-  .trend-img {
-    width: 15rem;
-    padding: 0.5rem;
-    display: inline-block;
-  }
-  .trend-img figure {
+  .movies-container {
+    display: flex;
+    height: 150px;
     width: 100%;
-    height: 25rem;
+    overflow: hidden;
   }
-  .trend-img figure img {
+  /*   .movie-container {
+    display: flex;
+  } */
+  .slider-trending {
+    display: flex;
+  }
+  /* .slider-trending figure {
+    width: 25%;
+  } */
+  .slider-trending > figure {
     border-radius: 1rem;
+    width: 100%;
+    /* aspect-ratio: 16 / 9; */
+    /* aspect-ratio: 0.5; */
+    /* aspect-ratio: 1 / 1; */
+    aspect-ratio: auto;
+    flex: 0 0 100%;
   }
 
   /* === Footer */
@@ -176,14 +189,6 @@
 /*=============== #Option ========================================*/
 @media (min-width: 481px) and (max-width: 765px) {
   /* === Main === */
-  .trend-img {
-    width: 100%;
-    padding: 0.5rem;
-  }
-  .trend-img figure {
-    width: 100%;
-    height: 25rem;
-  }
   .trend-img figure img {
     border-radius: 1rem;
   }
@@ -269,6 +274,10 @@
   }
   .header-user {
     display: none;
+  }
+  .figure-user img {
+    border-radius: 50%;
+    object-fit: cover;
   }
   #idUserPlus {
     margin-right: 1.5rem;

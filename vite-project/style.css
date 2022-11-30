@@ -90,7 +90,7 @@ img {
   background-position: center;
   object-fit: cover;
   outline: 2px solid #000;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .figure-user {
@@ -232,6 +232,45 @@ article {
   white-space: nowrap;
   height: 241px;
 } */
+
+.movie-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.handle {
+  border: none;
+  border-radius: 1rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  z-index: 10;
+  margin: var(--img-gap) 0;
+  width: var(--handle-size);
+  cursor: pointer;
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  line-height: 0;
+  transition: background-color 150ms ease-in-out;
+}
+
+.left-handle {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.right-handle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.handle:hover,
+.handle:focus {
+  background-color: var(--background-color-secondary);
+}
 
 footer {
   width: 100%;
