@@ -42,13 +42,14 @@ const getTrendingMovies = async () => {
       <div class="movie-container">
           <div class="slider-trending">
               <figure>
-                <img src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
+                <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
               </figure>
+              <h3 class="title">${image.title}</h3>;
+              <h3 class="title">Popularity: ${image.popularity}</h3>;
           </div>
       </div>
       `;
     });
-    //<h3 class="title">${image.title}</h3>;
     /*  articleTrendingPreview.append(idMoviesContainer); */
     idMoviesContainer.innerHTML = trends;
   }
