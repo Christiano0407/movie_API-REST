@@ -46,8 +46,8 @@ const getTrendingMovies = async () => {
                 <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
               </figure>
               <div class="movie-text">
-              <h3 class="title">${image.title}</h3>;
-              <h3 class="paragraph">Calif: ${image.vote_average}</h3>;
+                <h3 class="title">${image.title}</h3>
+                <h3 class="paragraph">Calif: ${image.vote_average}</h3>
               </div>
           </div>
       </div>

@@ -99,6 +99,11 @@ img {
   object-fit: cover;
 }
 
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 p,
 span {
   letter-spacing: 0.1rem;
@@ -233,11 +238,11 @@ article {
   height: 241px;
 } */
 
-.movie-container {
+/* .movie-container {
   display: flex;
   justify-content: center;
   overflow: hidden;
-}
+} */
 
 footer {
   width: 100%;
