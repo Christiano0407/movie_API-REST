@@ -260,12 +260,22 @@
     padding-left: 24px;
     padding-bottom: 16px;
     display: flex;
+    align-items: flex-start;
+  }
+  ::-webkit-scrollbar {
+    display: flex;
   }
   .categories-container {
     display: flex;
-    /*  justify-content: space-evenly;
-    align-items: center; */
+    padding: 1rem;
+    align-items: center;
+    /* margin-right: 2rem;
+    border-radius: 0.2rem;
+    outline: 2px solid var(--background-color-secondary); */
+  }
+  .btnPlus-categories {
     padding: 0.5rem;
+    font-size: 1rem;
   }
   .categories-id {
     margin-right: 1rem;

@@ -80,7 +80,9 @@ const getCategories = async () => {
       categoriesData.genres.forEach((cat) => {
         idCategories += `
           <div class = "categories-container">
-          <h3 class="categories-name">${cat.name}</h3>
+            <button class="btnPlus-categories">
+              <h3 class="categories-name">${cat.name}</h3>
+            </button>
           </div>
           `;
       });
