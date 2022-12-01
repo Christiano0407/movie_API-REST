@@ -166,6 +166,7 @@ button {
 }
 button:hover {
   background-color: #1a1a1a;
+  outline: 2px solid var(--background-color-secondary);
 }
 button:focus,
 button:focus-visible {

@@ -9,6 +9,8 @@ const idNavBtn = document.querySelector('#idNavBtn');
 const trendingPreview = document.querySelector(`#trendingPreview`);
 const articleTrendingPreview = document.querySelector(`#idTrendingPreview`);
 const idMoviesContainer = document.querySelector(`#idMoviesContainer`);
+const categories = document.querySelector(`#categoriesPreview`);
+const categoriesList = document.querySelector(`#idCategories`);
 
 //*? === >> BTN Burger Nav << === */
 const addNavigation = () => {
@@ -60,5 +62,35 @@ const getTrendingMovies = async () => {
     console.log('We Have Error!');
   }
 };
-
+//*! >>> Call Trending <<< */
 getTrendingMovies();
+
+const getCategories = async () => {
+  try {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY} `
+    );
+    const categoriesData = await res.json();
+    console.log(categoriesData);
+    console.log(categoriesData.genres[0].name);
+
+    if (res.status === 200) {
+      let idCategories = ` `;
+
+      categoriesData.genres.forEach((cat) => {
+        idCategories += `
+          <div class = "categories-container">
+          <h3 class="categories-name">${cat.name}</h3>
+          </div>
+          `;
+      });
+      /*  <h3 class="categories-id">${cat.id}</h3> */
+      categoriesList.innerHTML = idCategories;
+    }
+  } catch (error) {
+    console.log('Error in Categories!!');
+  }
+};
+
+//*!=== Call Functions ===  */
+getCategories();

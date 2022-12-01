@@ -165,6 +165,10 @@
     padding-bottom: 16px;
   }
 
+  /* ::-webkit-scrollbar {
+    display: none;
+  }
+ */
   .movies-container {
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -237,6 +241,38 @@
     top: 0;
     bottom: 0;
   } */
+
+  /* ===  Categories === */
+  .categoriesPreview-container {
+    overflow: hidden;
+  }
+  .categoriesPreview-title {
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 900;
+  }
+  .categoriesPreview-list {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 6rem;
+    padding-left: 24px;
+    padding-bottom: 16px;
+    display: flex;
+  }
+  .categories-container {
+    display: flex;
+    /*  justify-content: space-evenly;
+    align-items: center; */
+    padding: 0.5rem;
+  }
+  .categories-id {
+    margin-right: 1rem;
+  }
+  .categories-name:hover {
+    color: var(--background-color-secondary);
+  }
 
   /* === Footer */
   .footer {
