@@ -46,6 +46,7 @@
     right: 10%;
     outline: 4px solid var(--background-color-secondary);
     border-radius: 1rem;
+    background-color: var(--background-color-secondary);
   }
   .nav-add__list {
     flex-direction: column;
@@ -142,14 +143,17 @@
   .trendingPreview-header {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
+    padding: 0.5rem;
   }
   .trendingPreview-title {
     font-size: 1.8rem;
     font-weight: 900;
-    margin: 2rem auto;
+  }
+  .trendingPreview-btn {
+    padding: 0.5rem;
   }
 
   .movies-container {
@@ -160,10 +164,28 @@
     gap: 1rem;
   }
   .slider-trending {
-    text-align: center;
+  }
+  .figure-img {
+    padding: 0.5rem;
   }
   .movie-img {
     border-radius: 1rem;
+    aspect-ratio: 0.5;
+  }
+  .movie-img:is(:hover) {
+    filter: grayscale(1);
+  }
+  .movie-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .movie-text .title {
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .movie-text .paragraph {
+    font-size: 1rem;
+    font-weight: 400;
   }
 
   /* === Footer */

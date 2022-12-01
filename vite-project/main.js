@@ -27,31 +27,37 @@ idNavBtn.addEventListener('click', addNavigation);
 //https://api.themoviedb.org/3/movie/550?api_key=c66eb9e2b42b5d1d179fff7ac34ce71f
 
 const getTrendingMovies = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
-  );
-  const data = await response.json();
-  //console.log(data);
-  // console.log(data.results[0].id);
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
+    );
+    const data = await response.json();
+    //console.log(data);
+    // console.log(data.results[0].id);
 
-  if (response.status === 200) {
-    let trends = ' ';
+    if (response.status === 200) {
+      let trends = ' ';
 
-    data.results.forEach((image) => {
-      trends += `
+      data.results.forEach((image) => {
+        trends += `
       <div class="movie-container">
           <div class="slider-trending">
-              <figure>
+              <figure class="figure-img">
                 <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
               </figure>
+              <div class="movie-text">
               <h3 class="title">${image.title}</h3>;
-              <h3 class="title">Popularity: ${image.popularity}</h3>;
+              <h3 class="paragraph">Calif: ${image.vote_average}</h3>;
+              </div>
           </div>
       </div>
       `;
-    });
-    /*  articleTrendingPreview.append(idMoviesContainer); */
-    idMoviesContainer.innerHTML = trends;
+      });
+      /*  articleTrendingPreview.append(idMoviesContainer); */
+      idMoviesContainer.innerHTML = trends;
+    }
+  } catch (error) {
+    console.log('We Have Error!');
   }
 };
 
