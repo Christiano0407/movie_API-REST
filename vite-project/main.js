@@ -5,24 +5,35 @@
 import { addNavigation } from './src/js/header.js';
 import { getTrendingMovies } from './src/js/trending.js';
 import { getCategories } from './src/js/categories.js';
-
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
-//const iconBtn = document.querySelector(`#iconBtn`);
-//const trendingPreview = document.querySelector(`#trendingPreview`);
-//const articleTrendingPreview = document.querySelector(`#idTrendingPreview`);
 
-//const categories = document.querySelector(`#categoriesPreview`);
-
-//** === >> BTN Burger Nav << === */
-idNavBtn.addEventListener('click', addNavigation);
-
-//*! === === === Call Functions === === === */
-//** === Trending */
-getTrendingMovies();
-//** === categories */
-getCategories();
-
+//*! === === === Call Functions === === === *//
 //*! === Location & Hash Navigation === */
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
+
+const navigationEndpoint = () => {
+  console.log({ location });
+
+  if (location.hash.startsWith(`#homepage`)) {
+    homePage();
+  }
+
+  if (location.hash.startsWith(`#trends`)) {
+    console.log('Trending');
+  } else {
+    homePage();
+  }
+};
+//** === HomePage */
+const homePage = () => {
+  console.log('#HomePage');
+  getTrendingMovies();
+  getCategories();
+  idNavBtn.addEventListener('click', addNavigation);
+};
+
+//** === >> Add & Loaded ==> Hash Navigation & Location (False Router Express Js) << === */
+window.addEventListener(`DOMContentLoaded`, navigationEndpoint, false);
+window.addEventListener(`hashchange`, navigationEndpoint, false);
