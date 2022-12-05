@@ -7,13 +7,14 @@ const trendingPreview = document.querySelector(`#trendingPreview`);
 const categoriesPreview = document.querySelector(`#categoriesPreview`);
 const movieDetail = document.querySelector(`#movieDetail`);
 
-const movieImg = document.querySelector(`#idMovieImg`);
-const movieFigureImg = document.querySelector(`.figure-img`);
-const idArrow = document.querySelector(`#idArrow`);
-const idMainArrow = document.querySelector(`#idMainArrow`);
+const idDetailBtn = document.querySelector(`#idDetailBtn`);
 
-/* const upDetailImg = () => {
-  console.log('Add New Img');
+export const movieDetailPage = () => {
+  console.log('Movies Details');
+  // movieDetail.classList.remove(`inactive`);
+  movieDetail.classList.add(`header-container__mobile`);
+  categoriesPreview.classList.add(`inactive`);
+  trendingPreview.classList.add(`inactive`);
 };
 
-movieImg.addEventListener(`click`, upDetailImg); */
+/* idDetailBtn.addEventListener(`click`, movieDetailPage); */

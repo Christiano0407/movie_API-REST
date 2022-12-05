@@ -31,6 +31,7 @@ export const getTrendingMovies = async () => {
               <div class="movie-text">
                 <h3 class="title">${image.title}</h3>
                 <span class="paragraph">Calif: ${image.vote_average}</span>
+                <button id="idDetailBtn" class="btn-detail">Detail</button>
               </div>
           </div>
       </div>
