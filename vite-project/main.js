@@ -6,6 +6,7 @@ import { addNavigation } from './src/js/header.js';
 import { getTrendingMovies } from './src/js/trending.js';
 import { getCategories } from './src/js/categories.js';
 import { genericMovies } from './src/js/genericList.js';
+//import { upDetailImg } from './src/js/movieDetail.js';
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
@@ -30,6 +31,13 @@ const navigationEndpoint = () => {
   if (location.hash.startsWith(`#genericMovies`)) {
     console.log(`#genericMovies`);
     genericMovies();
+  } else {
+    homePage();
+  }
+
+  if (location.hash.startsWith(`#movieDetail`)) {
+    console.log(`DetailMovie`);
+    //upDetailImg();
   } else {
     homePage();
   }

@@ -2,7 +2,7 @@
 import { API_KEY } from '../secret/secret.js';
 //import { getTrendingMovies } from './trending';
 
-const API_POPULAR = `https://api.themoviedb.org/3/movie/popular/?api_key=${API_KEY}`;
+const API_POPULAR = `https://api.themoviedb.org/3/movie/popular/?page=1&api_key=${API_KEY}`;
 //** === Variables === */
 const genericList = document.querySelector(`#idGenericList`);
 const trendingPreview = document.querySelector(`#trendingPreview`);
@@ -14,17 +14,15 @@ const movieContainer = document.querySelector(`.movie-container`);
 
 export const genericMovies = () => {
   console.log(`GenericList`);
-
+  getPopularMovies();
   if (idMainArrow && idArrow) {
     idArrow.classList.remove(`inactive`);
     idMainArrow.classList.remove(`inactive`);
   }
   genericList.classList.remove(`inactive`);
-  movieContainer.classList.add(`inactive`);
+  movieContainer.classList.remove(`inactive`);
   trendingPreview.classList.add(`inactive`);
   categoriesPreview.classList.add(`inactive`);
-
-  getPopularMovies();
 };
 
 btnGenericList.addEventListener(`click`, genericMovies);
@@ -46,7 +44,7 @@ const getPopularMovies = async () => {
         <div class="moviesPopular-container">
             <img
               src="https://image.tmdb.org/t/p/w500/${popular.poster_path}"
-              class="movie-img"
+              class="moviePopular-img"
               alt="movies-Popular"
             />
           </div>
