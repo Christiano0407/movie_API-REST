@@ -1,5 +1,5 @@
 //**TODO ====  === === Trending === === ==== */
-import { API_KEY } from '../secret/secret';
+import { API_KEY } from '../secret/secret.js';
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 const API_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
 

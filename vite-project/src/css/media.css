@@ -24,6 +24,9 @@
   .header--nav .nav-btn {
     border-radius: 50%;
     outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .nav-btn i {
     color: #fff;
@@ -286,6 +289,24 @@
   }
   .categories-name:hover {
     color: var(--background-color-secondary);
+  }
+  .arrow {
+    padding: 1rem;
+    border: 3px solid hsl(0deg 0% 100%);
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  .main-arrow {
+    font-size: 25px;
+    color: hsl(0deg 0% 100%);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .main-arrow:active {
+    transform: scale(0.9);
   }
 
   /* === Footer */
