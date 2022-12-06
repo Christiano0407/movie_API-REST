@@ -47,7 +47,7 @@ const getPopularMovies = async () => {
               class="moviePopular-img"
               alt="movies-Popular"
             />
-          </div>
+        </div>
     `;
     });
     genericList.innerHTML = popularMoviesNew;
