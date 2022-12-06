@@ -1,23 +1,23 @@
 //import './style.css';
 //** === === Movie App === === */
-//*! === Import === */
+//** === Import === */
 //import { API_KEY } from './src/secret/secret.js';
 import { addNavigation } from './src/js/header.js';
 import { getTrendingMovies } from './src/js/trending.js';
 import { getCategories } from './src/js/categories.js';
 import { genericMovies } from './src/js/genericList.js';
-import { add, movieDetailPage } from './src/js/movieDetail.js';
-//*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
+import { movieDetailPage } from './src/js/movieDetail.js';
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
-//*! === === === Call Functions === === === *//
-//*! === Location & Hash Navigation === */
+//*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
+//** === Location & Hash Navigation === */
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
-
 const navigationEndpoint = () => {
   //console.log({ location });
 
   if (location.hash.startsWith(`#homepage`)) {
+    homePage();
+  } else {
     homePage();
   }
 
@@ -33,7 +33,8 @@ const navigationEndpoint = () => {
   if (location.hash.startsWith(`#movieDetail`)) {
     console.log(`DetailMovie`);
     movieDetailPage();
-    add();
+  } else {
+    homePage();
   }
 };
 //** === HomePage */

@@ -1,10 +1,12 @@
 //**TODO ====  === === Trending === === ==== */
 import { API_KEY } from '../secret/secret.js';
+import { movieDetailPage } from './movieDetail';
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 const API_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
+const idMoviesContainer = document.querySelector(`#idTrendingPreview`);
+let idMovie;
 
 //*! Variables  */
-const idMoviesContainer = document.querySelector(`#idMoviesContainer`);
 
 //** === Trending */
 export const getTrendingMovies = async () => {
@@ -39,6 +41,12 @@ export const getTrendingMovies = async () => {
       });
       /*  articleTrendingPreview.append(idMoviesContainer); */
       idMoviesContainer.innerHTML = trends;
+      idMovie = document.querySelectorAll(`#idMovieImg`);
+      idMovie.forEach((movie) => {
+        movie.addEventListener(`click`, () => {
+          movieDetailPage();
+        });
+      });
     }
   } catch (error) {
     console.log('We Have Error!');

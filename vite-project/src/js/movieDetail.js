@@ -12,10 +12,6 @@ const formHeader = document.querySelector(`.header-form`);
 const user = document.querySelector(`#idUserPlus`);
 const btn = document.querySelector(`#idDetailBtn`);
 
-const movies = document.querySelectorAll(`#idMovieImg`);
-
-let movie;
-
 export const movieDetailPage = () => {
   console.log('Movies Details');
   movieDetail.style.display = 'flex';
@@ -25,9 +21,4 @@ export const movieDetailPage = () => {
   navigation.style.display = 'none';
   formHeader.style.display = 'none';
   user.style.display = 'none';
-};
-
-export const add = () => {
-  console.log('Add');
-  //btn.addEventListener('click', console.log('Hello'));
 };
