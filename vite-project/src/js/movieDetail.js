@@ -6,15 +6,22 @@
 const trendingPreview = document.querySelector(`#trendingPreview`);
 const categoriesPreview = document.querySelector(`#categoriesPreview`);
 const movieDetail = document.querySelector(`#movieDetail`);
+const headerSection = document.querySelector(`#header`);
+const navigation = document.querySelector(`#idNav`);
+const formHeader = document.querySelector(`.header-form`);
+const user = document.querySelector(`#idUserPlus`);
 
 const idDetailBtn = document.querySelector(`#idDetailBtn`);
 
 export const movieDetailPage = () => {
   console.log('Movies Details');
-  // movieDetail.classList.remove(`inactive`);
-  movieDetail.classList.add(`header-container__mobile`);
-  categoriesPreview.classList.add(`inactive`);
-  trendingPreview.classList.add(`inactive`);
+  movieDetail.style.display = 'flex';
+  headerSection.classList.add(`header-container__mobile`);
+  categoriesPreview.style.display = 'none';
+  trendingPreview.style.display = 'none';
+  navigation.style.display = 'none';
+  formHeader.style.display = 'none';
+  user.style.display = 'none';
 };
 
 /* idDetailBtn.addEventListener(`click`, movieDetailPage); */

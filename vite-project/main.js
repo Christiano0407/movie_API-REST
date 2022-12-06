@@ -16,7 +16,7 @@ const idNavBtn = document.querySelector('#idNavBtn');
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
 
 const navigationEndpoint = () => {
-  console.log({ location });
+  //console.log({ location });
 
   if (location.hash.startsWith(`#homepage`)) {
     homePage();

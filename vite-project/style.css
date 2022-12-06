@@ -253,17 +253,20 @@ footer {
 }
 /* === EXTRA Header Container long === Mobile === */
 .header-container__mobile {
-  background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
+  background-image: url('https://i.pinimg.com/564x/31/b6/48/31b64837f1e62fa177bc7fd22ca3510c.jpg');
   background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.35) 19.27%,
       rgba(0, 0, 0, 0) 29.17%
     ),
-    url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+    url(https://i.pinimg.com/564x/31/b6/48/31b64837f1e62fa177bc7fd22ca3510c.jpg);
+  object-fit: cover;
   background-size: cover;
-  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
   height: 480px;
   position: fixed;
   top: 0;
-  width: 100%;
+  /* width: 100%; */
+  width: 425px;
 }
