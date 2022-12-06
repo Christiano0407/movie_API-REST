@@ -6,11 +6,10 @@ import { addNavigation } from './src/js/header.js';
 import { getTrendingMovies } from './src/js/trending.js';
 import { getCategories } from './src/js/categories.js';
 import { genericMovies } from './src/js/genericList.js';
-import { movieDetailPage } from './src/js/movieDetail.js';
+import { add, movieDetailPage } from './src/js/movieDetail.js';
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
-
 //*! === === === Call Functions === === === *//
 //*! === Location & Hash Navigation === */
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
@@ -23,23 +22,18 @@ const navigationEndpoint = () => {
   }
 
   if (location.hash.startsWith(`#trends`)) {
-    console.log('Trending');
-  } else {
-    homePage();
+    console.log('#Trending');
   }
 
   if (location.hash.startsWith(`#genericMovies`)) {
     console.log(`#genericMovies`);
     genericMovies();
-  } else {
-    homePage();
   }
 
   if (location.hash.startsWith(`#movieDetail`)) {
     console.log(`DetailMovie`);
     movieDetailPage();
-  } else {
-    homePage();
+    add();
   }
 };
 //** === HomePage */

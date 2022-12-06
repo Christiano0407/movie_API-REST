@@ -10,8 +10,11 @@ const headerSection = document.querySelector(`#header`);
 const navigation = document.querySelector(`#idNav`);
 const formHeader = document.querySelector(`.header-form`);
 const user = document.querySelector(`#idUserPlus`);
+const btn = document.querySelector(`#idDetailBtn`);
 
-const idDetailBtn = document.querySelector(`#idDetailBtn`);
+const movies = document.querySelectorAll(`#idMovieImg`);
+
+let movie;
 
 export const movieDetailPage = () => {
   console.log('Movies Details');
@@ -24,4 +27,7 @@ export const movieDetailPage = () => {
   user.style.display = 'none';
 };
 
-/* idDetailBtn.addEventListener(`click`, movieDetailPage); */
+export const add = () => {
+  console.log('Add');
+  //btn.addEventListener('click', console.log('Hello'));
+};
