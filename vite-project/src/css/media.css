@@ -338,6 +338,26 @@
     background-color: #f2f2f2;
     color: #111;
     border-radius: 1rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .movieDetail-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0;
+    /* padding: 1rem; */
+  }
+  .movieDetail-score {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem;
+  }
+  .movieDetail-description {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0.5rem;
   }
   #idArrowPlus {
     margin: 2rem 0;
@@ -359,6 +379,11 @@
     aspect-ratio: 0.5;
     object-fit: cover;
     background-size: cover;
+  }
+  .relatedMovies-title {
+    margin: 1.5rem auto;
+    font-size: 1.6rem;
+    font-weight: 700;
   }
 
   /* === Footer */
@@ -411,6 +436,10 @@
     display: flex;
     align-items: center;
     padding: 0.5rem;
+  }
+  .header-container__mobile {
+    width: 45rem;
+    margin: 0 auto;
   }
 
   #idNavAdd {

@@ -267,6 +267,6 @@ footer {
   height: 480px;
   position: fixed;
   top: 0;
-  /* width: 100%; */
-  width: 425px;
+  width: 100%;
+  /* width: 425px; */
 }
