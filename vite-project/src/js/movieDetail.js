@@ -64,13 +64,20 @@ const addSimilarMovies = async () => {
 
       data.results.forEach((movie) => {
         similar += `
-         <div class="movieSimilar-container">
-            <img
-              src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
-              class="movieSimilar-img"
-              alt="movies-Popular"
-            />
-         </div>
+          <div class="movieSimilar-Card--container">
+            <figure class="figure-similarMovie">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
+                  class="movieSimilar-img"
+                  alt="movies-Popular"
+                />
+            </figure>
+            <div class="movieSimilar-content">
+                <h2 class="similar-title">${movie.title}</h2>
+                <p class="similar-text">${movie.overview}</p>
+                <button id="btnSimilarMovie" class="btn-similar" >Learn More</button>
+            </div>
+          </div>
         `;
       });
       movieSimilarRelated.innerHTML = similar;
