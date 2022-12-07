@@ -19,6 +19,7 @@ const btn = document.querySelector(`#idDetailBtn`);
 
 const relatedSimarMovies = document.querySelector(`#relatedSimarMovies`);
 const movieSimilarRelated = document.querySelector(`#movieSimilarRelated`);
+const titleMovieDetail = document.querySelector(`#idMovieDetail`);
 /* console.log(relatedSimarMovies); */
 
 export const movieDetailPage = () => {
@@ -60,6 +61,7 @@ const addSimilarMovies = async () => {
     console.log(data);
 
     if (response.status === 200) {
+      //titleMovieDetail.innerHTML = data.results.title;
       let similar = ``;
 
       data.results.forEach((movie) => {
