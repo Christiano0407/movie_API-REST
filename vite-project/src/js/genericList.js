@@ -17,7 +17,6 @@ const header = document.querySelector(`#header`);
 export const genericMovies = () => {
   /*   console.log(`#GenericList`); */
   location.hash = `#genericMovies`;
-  getPopularMovies();
   header.style.display = 'none';
   if (idMainArrow && idArrow) {
     idArrow.classList.remove(`inactive`);
@@ -27,6 +26,7 @@ export const genericMovies = () => {
   movieContainer.classList.remove(`inactive`);
   trendingPreview.classList.add(`inactive`);
   categoriesPreview.classList.add(`inactive`);
+  getPopularMovies();
 };
 
 btnGenericList.addEventListener(`click`, genericMovies);
