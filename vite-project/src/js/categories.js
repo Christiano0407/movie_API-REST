@@ -58,6 +58,7 @@ export const getCategories = async () => {
       genericCategories.forEach((categories) => {
         categories.addEventListener(`click`, () => {
           console.log('Categories');
+          location.hash = `#categoriesMovies`;
           addNewCategories();
         });
       });
@@ -92,6 +93,7 @@ const addNewCategories = () => {
 };
 
 const returnArrow = () => {
+  location.hash = `#homepage`;
   console.log(`arrow`);
   trendingPreview.style.display = 'flex';
   headerSection.style.display = 'flex';

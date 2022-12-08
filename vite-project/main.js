@@ -9,6 +9,7 @@ import { genericMovies } from './src/js/genericList.js';
 import { movieDetailPage } from './src/js/movieDetail.js';
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
+const searchBtn = document.querySelector(`#searchBtn`);
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 //** === Location & Hash Navigation === */
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
@@ -21,13 +22,26 @@ const navigationEndpoint = () => {
     homePage();
   }
 
+  if (location.hash.startsWith(`#search=`)) {
+    console.log('Search=');
+  }
+
+  if (location.hash.startsWith(`#categoriesMovies`)) {
+    /*  location.hash = `#categoriesMovies`; */
+    console.log('Categories Movies');
+    getCategories();
+  }
+
   if (location.hash.startsWith(`#trends`)) {
     console.log('#Trending');
   }
 
   if (location.hash.startsWith(`#genericMovies`)) {
     console.log(`#genericMovies`);
+    /* location.hash = `#genericMovies`; */
     genericMovies();
+  } else {
+    location.hash = `#homepage`;
   }
 
   if (location.hash.startsWith(`#movieDetail`)) {
@@ -44,6 +58,11 @@ const homePage = () => {
   getCategories();
   idNavBtn.addEventListener('click', addNavigation);
 };
+
+searchBtn.addEventListener(`click`, () => {
+  console.log('searchBtn');
+  location.hash = `#search=`;
+});
 
 //** === >> Add & Loaded ==> Hash Navigation & Location (False Router Express Js) << === */
 window.addEventListener(`DOMContentLoaded`, navigationEndpoint, false);
