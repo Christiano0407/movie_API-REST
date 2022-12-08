@@ -15,6 +15,7 @@ const movieContainer = document.querySelector(`.movie-container`);
 const header = document.querySelector(`#header`);
 
 export const genericMovies = () => {
+  getPopularMovies();
   /*   console.log(`#GenericList`); */
   location.hash = `#genericMovies`;
   header.style.display = 'none';
@@ -26,7 +27,6 @@ export const genericMovies = () => {
   movieContainer.classList.remove(`inactive`);
   trendingPreview.classList.add(`inactive`);
   categoriesPreview.classList.add(`inactive`);
-  getPopularMovies();
 };
 
 btnGenericList.addEventListener(`click`, genericMovies);
@@ -39,6 +39,7 @@ const getPopularMovies = async () => {
         'Content-Type': 'application/json',
       },
     });
+    /*  categoriesPreview.innerHTML = ''; */
 
     const dataPopular = await response.json();
     let popularMoviesNew = ``;
@@ -67,9 +68,10 @@ const returnMovies = () => {
   idArrow.classList.add(`inactive`);
   idMainArrow.classList.add(`inactive`);
   header.style.display = 'flex';
-  genericList.style.display = `none`;
-  trendingPreview.style.display = `flex`;
-  categoriesPreview.style.display = `flex`;
+  //genericList.style.display = `flex`;
+  genericList.classList.add(`inactive`);
+  trendingPreview.classList.add(`active`);
+  categoriesPreview.classList.add(`active`);
 };
 
 idMainArrow.addEventListener(`click`, returnMovies);

@@ -188,12 +188,12 @@ button:active {
 
 .app > .main {
   grid-area: main;
-  outline: 4px solid violet;
+  /*  outline: 4px solid violet; */
 }
 
 .app > .footer {
   grid-area: footer;
-  outline: 4px solid white;
+  /* outline: 4px solid white; */
 }
 
 /* === Active & Inactive === */

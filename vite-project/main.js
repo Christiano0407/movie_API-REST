@@ -19,7 +19,6 @@ const navigationEndpoint = () => {
   if (location.hash.startsWith(`#homepage`)) {
     location.hash = `#homepage`;
     homePage();
-    getTrendingMovies();
   }
 
   if (location.hash.startsWith(`#search=`)) {
@@ -50,10 +49,11 @@ const navigationEndpoint = () => {
   }
 };
 //** === HomePage */
-export const homePage = () => {
+const homePage = () => {
   console.log('#HomePage');
   /*  getTrendingMovies(); */
   getCategories();
+  getTrendingMovies();
   idNavBtn.addEventListener('click', addNavigation);
 };
 
