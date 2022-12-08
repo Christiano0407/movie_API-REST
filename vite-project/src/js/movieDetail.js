@@ -23,6 +23,7 @@ const titleMovieDetail = document.querySelector(`#idMovieDetail`);
 /* console.log(relatedSimarMovies); */
 
 export const movieDetailPage = () => {
+  location.hash = `#movieDetail`;
   console.log('Movies Details');
   movieDetail.style.display = 'flex';
   headerSection.classList.add(`header-container__mobile`);
@@ -36,6 +37,7 @@ export const movieDetailPage = () => {
 };
 
 const returnMovies = () => {
+  location.hash = `#homepage`;
   movieDetail.style.display = 'none';
   headerSection.classList.remove(`header-container__mobile`);
   categoriesPreview.style.display = 'flex';
@@ -49,7 +51,7 @@ const returnMovies = () => {
 
 idMainArrow.addEventListener(`click`, returnMovies);
 
-const addSimilarMovies = async () => {
+export const addSimilarMovies = async () => {
   try {
     const response = await fetch(API_SIMILAR, {
       method: `GET`,
@@ -89,4 +91,4 @@ const addSimilarMovies = async () => {
   }
 };
 
-addSimilarMovies();
+//addSimilarMovies();

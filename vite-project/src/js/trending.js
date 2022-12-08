@@ -46,6 +46,7 @@ export const getTrendingMovies = async () => {
           movieDetailPage();
         });
       });
+      /* location.hash = `#homepage`; */
     }
   } catch (error) {
     console.log('We Have Error!');

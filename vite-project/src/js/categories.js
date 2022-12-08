@@ -57,8 +57,6 @@ export const getCategories = async () => {
       //console.log(genericCategories);
       genericCategories.forEach((categories) => {
         categories.addEventListener(`click`, () => {
-          console.log('Categories');
-          location.hash = `#categoriesMovies`;
           addNewCategories();
         });
       });
@@ -69,6 +67,7 @@ export const getCategories = async () => {
 };
 
 const addNewCategories = () => {
+  location.hash = `#categoriesMovies`;
   trendingPreview.style.display = 'none';
   headerSection.style.display = 'flex';
   categoriesList.style.display = 'none';
@@ -94,7 +93,7 @@ const addNewCategories = () => {
 
 const returnArrow = () => {
   location.hash = `#homepage`;
-  console.log(`arrow`);
+  /* console.log(`arrow`); */
   trendingPreview.style.display = 'flex';
   headerSection.style.display = 'flex';
   categoriesList.style.display = 'flex';

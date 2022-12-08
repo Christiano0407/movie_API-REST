@@ -1,5 +1,6 @@
 //**TODO === === === Generic List === === ===  */
 import { API_KEY } from '../secret/secret.js';
+//import { getTrendingMovies } from './trending.js';
 //import { getTrendingMovies } from './trending';
 
 const API_POPULAR = `https://api.themoviedb.org/3/movie/popular/?page=1&api_key=${API_KEY}`;
@@ -14,7 +15,7 @@ const movieContainer = document.querySelector(`.movie-container`);
 const header = document.querySelector(`#header`);
 
 export const genericMovies = () => {
-  console.log(`GenericList`);
+  /*   console.log(`#GenericList`); */
   location.hash = `#genericMovies`;
   getPopularMovies();
   header.style.display = 'none';
@@ -60,12 +61,15 @@ const getPopularMovies = async () => {
 };
 
 const returnMovies = () => {
-  console.log(`return`);
+  location.hash = `#homepage`;
+  /*  getTrendingMovies(); */
+  /*  console.log(`return`); */
   idArrow.classList.add(`inactive`);
   idMainArrow.classList.add(`inactive`);
-  genericList.classList.add(`inactive`);
-  trendingPreview.classList.remove(`inactive`);
-  categoriesPreview.classList.remove(`inactive`);
+  header.style.display = 'flex';
+  genericList.style.display = `none`;
+  trendingPreview.style.display = `flex`;
+  categoriesPreview.style.display = `flex`;
 };
 
 idMainArrow.addEventListener(`click`, returnMovies);

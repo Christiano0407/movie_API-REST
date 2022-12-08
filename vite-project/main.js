@@ -7,6 +7,7 @@ import { getTrendingMovies } from './src/js/trending.js';
 import { getCategories } from './src/js/categories.js';
 import { genericMovies } from './src/js/genericList.js';
 import { movieDetailPage } from './src/js/movieDetail.js';
+import { addSimilarMovies } from './src/js/movieDetail.js';
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
 const searchBtn = document.querySelector(`#searchBtn`);
@@ -15,46 +16,43 @@ const searchBtn = document.querySelector(`#searchBtn`);
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
 const navigationEndpoint = () => {
   //console.log({ location });
-
   if (location.hash.startsWith(`#homepage`)) {
+    location.hash = `#homepage`;
     homePage();
-  } else {
-    homePage();
+    getTrendingMovies();
   }
 
   if (location.hash.startsWith(`#search=`)) {
-    console.log('Search=');
+    console.log('#Search=');
   }
 
   if (location.hash.startsWith(`#categoriesMovies`)) {
     /*  location.hash = `#categoriesMovies`; */
-    console.log('Categories Movies');
+    console.log('#CategoriesMovies');
     getCategories();
   }
 
   if (location.hash.startsWith(`#trends`)) {
     console.log('#Trending');
+    //getTrendingMovies();
   }
 
   if (location.hash.startsWith(`#genericMovies`)) {
     console.log(`#genericMovies`);
     /* location.hash = `#genericMovies`; */
     genericMovies();
-  } else {
-    location.hash = `#homepage`;
   }
 
   if (location.hash.startsWith(`#movieDetail`)) {
-    console.log(`DetailMovie`);
+    console.log(`#DetailMovie`);
     movieDetailPage();
-  } else {
-    homePage();
+    addSimilarMovies();
   }
 };
 //** === HomePage */
-const homePage = () => {
+export const homePage = () => {
   console.log('#HomePage');
-  getTrendingMovies();
+  /*  getTrendingMovies(); */
   getCategories();
   idNavBtn.addEventListener('click', addNavigation);
 };
