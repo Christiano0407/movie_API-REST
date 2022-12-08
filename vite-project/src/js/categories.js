@@ -10,6 +10,8 @@ const headerSection = document.querySelector(`#header`);
 const idGenericList = document.querySelector(`#idGenericList`);
 const idArrow = document.querySelector(`#idArrow`);
 const idMainArrow = document.querySelector(`#idMainArrow`);
+const arrowHeader = document.querySelector(`.arrow`);
+const arrowHeaderSpan = document.querySelector(`.header-arrow`);
 const headerCategories = document.querySelector(`.header-categorie`);
 const headerForm = document.querySelector(`.header-form`);
 const searchForm = document.querySelector(`#searchForm`);
@@ -17,6 +19,9 @@ const headerTitle = document.querySelector(`.header-title`);
 const headerTitleCategoryView = document.querySelector(
   `.header-title--categoryView`
 );
+const idNavBtn = document.querySelector(`#idNavBtn`);
+const logo = document.querySelector(`.logo`);
+const headerUser = document.querySelector(`.header-user`);
 let genericCategories;
 
 //**  === >>> Fetch Trending Preview Movies <<< ===  */
@@ -64,17 +69,47 @@ export const getCategories = async () => {
 
 const addNewCategories = () => {
   trendingPreview.style.display = 'none';
-  headerSection.style.display = 'none';
+  headerSection.style.display = 'flex';
   categoriesList.style.display = 'none';
   categoriesPreview.style.display = 'none';
   idGenericList.style.display = 'flex';
   if (idMainArrow && idArrow) {
-    idArrow.classList.remove(`inactive`);
-    idMainArrow.classList.remove(`inactive`);
+    idArrow.classList.add(`inactive`);
+    idMainArrow.classList.add(`inactive`);
+  }
+  if (arrowHeader && arrowHeaderSpan) {
+    arrowHeader.classList.add(`active`);
+    arrowHeaderSpan.classList.add(`active`);
   }
   headerCategories.classList.remove(`inactive`);
-  headerTitle.classList.remove(`inactive`);
-  headerTitleCategoryView.classList.remove(`inactive`);
+  headerTitle.classList.add(`active`);
+  headerTitleCategoryView.classList.add(`active`);
+  headerForm.style.display = 'none';
+  searchForm.style.display = `none`;
+  idNavBtn.style.display = 'none';
+  logo.style.display = `none`;
+  headerUser.style.display = `none`;
+};
+
+const returnArrow = () => {
+  console.log(`arrow`);
+  trendingPreview.style.display = 'flex';
+  headerSection.style.display = 'flex';
+  categoriesList.style.display = 'flex';
+  categoriesPreview.style.display = 'flex';
+  idGenericList.style.display = 'none';
+  if (arrowHeader && arrowHeaderSpan) {
+    arrowHeader.classList.remove(`active`);
+    arrowHeaderSpan.classList.remove(`active`);
+  }
+  headerCategories.classList.add(`inactive`);
+  headerTitle.classList.remove(`active`);
+  headerTitleCategoryView.classList.remove(`active`);
   headerForm.style.display = 'flex';
   searchForm.style.display = `flex`;
+  idNavBtn.style.display = 'flex';
+  logo.style.display = `flex`;
+  headerUser.style.display = `flex`;
 };
+
+arrowHeaderSpan.addEventListener(`click`, returnArrow);

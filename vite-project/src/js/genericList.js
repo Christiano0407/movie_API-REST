@@ -11,10 +11,12 @@ const btnGenericList = document.querySelector(`#idBtnTrending`);
 const idArrow = document.querySelector(`#idArrow`);
 const idMainArrow = document.querySelector(`#idMainArrow`);
 const movieContainer = document.querySelector(`.movie-container`);
+const header = document.querySelector(`#header`);
 
 export const genericMovies = () => {
   console.log(`GenericList`);
   getPopularMovies();
+  header.style.display = 'none';
   if (idMainArrow && idArrow) {
     idArrow.classList.remove(`inactive`);
     idMainArrow.classList.remove(`inactive`);
