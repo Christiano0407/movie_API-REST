@@ -22,6 +22,7 @@ const headerTitleCategoryView = document.querySelector(
 const idNavBtn = document.querySelector(`#idNavBtn`);
 const logo = document.querySelector(`.logo`);
 const headerUser = document.querySelector(`.header-user`);
+let names;
 let genericCategories;
 
 //**  === >>> Fetch Trending Preview Movies <<< ===  */
@@ -50,6 +51,7 @@ export const getCategories = async () => {
             </button>
           </div>
           `;
+        //location.hash = `#categoriesMovies=` + `${names.id}`;
       });
       /*  <h3 class="categories-id">${cat.id}</h3> */
       categoriesList.innerHTML = idCategories;
@@ -72,7 +74,7 @@ const addNewCategories = () => {
   headerSection.style.display = 'flex';
   categoriesList.style.display = 'none';
   categoriesPreview.style.display = 'none';
-  idGenericList.style.display = 'flex';
+  idGenericList.style.display = 'grid';
   if (idMainArrow && idArrow) {
     idArrow.classList.add(`inactive`);
     idMainArrow.classList.add(`inactive`);

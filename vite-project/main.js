@@ -16,6 +16,12 @@ const searchBtn = document.querySelector(`#searchBtn`);
 //window.addEventListener(`hashchange`, () => console.log(location.hash));
 const navigationEndpoint = () => {
   //console.log({ location });
+
+  /* if (location.hash.startsWith(`#`)) {
+    location.hash = `#homepage`;
+    homePage();
+  } */
+
   if (location.hash.startsWith(`#homepage`)) {
     location.hash = `#homepage`;
     homePage();
