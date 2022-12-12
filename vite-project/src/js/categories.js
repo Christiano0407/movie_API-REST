@@ -2,12 +2,15 @@
 import { API_KEY } from '../secret/secret.js';
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 const API_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY} `;
+/* const API_CHANGES = `https://api.themoviedb.org/3/movie/changes?api_key=${API_KEY}`; */
+const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 //** === Variables === */
 const categoriesList = document.querySelector(`#idCategories`);
 const trendingPreview = document.querySelector(`#trendingPreview`);
 const categoriesPreview = document.querySelector(`#categoriesPreview`);
 const headerSection = document.querySelector(`#header`);
 const idGenericList = document.querySelector(`#idGenericList`);
+const idGenericListDiscover = document.querySelector(`#idGenericList`);
 const idArrow = document.querySelector(`#idArrow`);
 const idMainArrow = document.querySelector(`#idMainArrow`);
 const arrowHeader = document.querySelector(`.arrow`);
@@ -22,7 +25,6 @@ const headerTitleCategoryView = document.querySelector(
 const idNavBtn = document.querySelector(`#idNavBtn`);
 const logo = document.querySelector(`.logo`);
 const headerUser = document.querySelector(`.header-user`);
-let names;
 let genericCategories;
 
 //**  === >>> Fetch Trending Preview Movies <<< ===  */
@@ -60,6 +62,7 @@ export const getCategories = async () => {
       genericCategories.forEach((categories) => {
         categories.addEventListener(`click`, () => {
           addNewCategories();
+          IDDiscover();
         });
       });
     }
@@ -116,3 +119,31 @@ const returnArrow = () => {
 };
 
 arrowHeaderSpan.addEventListener(`click`, returnArrow);
+
+const IDDiscover = async () => {
+  try {
+    const response = await fetch(API_DISCOVER, {
+      method: `GET`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const dataDiscover = await response.json();
+    //console.log(dataDiscover.results);
+
+    if (response.status === 200) {
+      let discoverMovies = ` `;
+
+      dataDiscover.results.forEach((discover) => {
+        discoverMovies += ` 
+        <div class="discover-movies">
+          <h3 class="discover-moviesTitle">${discover.title}</h3>
+        </div>
+        `;
+      });
+      idGenericList.innerHTML = discoverMovies;
+    }
+  } catch (error) {
+    console.log('Error Discover');
+  }
+};
