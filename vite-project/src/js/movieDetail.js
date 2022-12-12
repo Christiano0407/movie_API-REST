@@ -2,8 +2,9 @@
 //** ===  === import  */
 import { API_KEY } from '../secret/secret.js';
 //** === API Similar === */
-const API_SIMILAR = `https://api.themoviedb.org/3/movie/${20}/similar?api_key=${API_KEY}&page=1&language=en-US`;
-console.log(API_SIMILAR);
+let pages = 1;
+const API_SIMILAR = `https://api.themoviedb.org/3/movie/${20}/similar?api_key=${API_KEY}&page=1&language=en-US&page=${pages}`;
+//console.log(API_SIMILAR);
 
 //*? === Variables */
 const trendingPreview = document.querySelector(`#trendingPreview`);
@@ -21,6 +22,26 @@ const relatedSimarMovies = document.querySelector(`#relatedSimarMovies`);
 const movieSimilarRelated = document.querySelector(`#movieSimilarRelated`);
 const titleMovieDetail = document.querySelector(`#idMovieDetail`);
 /* console.log(relatedSimarMovies); */
+
+let lastMovies;
+let similar = ``;
+
+//** === === >= Create Intersection Observer <= === === */
+let observer = new IntersectionObserver(
+  (entries, observe) => {
+    console.log(entries);
+    entries.forEach((entriesOne) => {
+      if (entriesOne.isIntersecting) {
+        pages++;
+        addSimilarMovies();
+      }
+    });
+  },
+  {
+    rootMargin: `0px 0px 200px 0px`,
+    threshold: 1.0,
+  }
+);
 
 export const movieDetailPage = () => {
   location.hash = `#movieDetail`;
@@ -60,11 +81,11 @@ export const addSimilarMovies = async () => {
       },
     });
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
 
     if (response.status === 200) {
       //titleMovieDetail.innerHTML = data.results.title;
-      let similar = ``;
+      movieSimilarRelated.innerHTML = '';
 
       data.results.forEach((movie) => {
         similar += `
@@ -85,6 +106,19 @@ export const addSimilarMovies = async () => {
         `;
       });
       movieSimilarRelated.innerHTML = similar;
+
+      if (pages < 1000) {
+        if (lastMovies) {
+          observer.unobserve(lastMovies);
+        }
+      }
+
+      const IntersectionMovies = document.querySelectorAll(
+        `.relatedMovies-scrollContainer, .movieSimilar-Card--container`
+      );
+
+      lastMovies = IntersectionMovies[IntersectionMovies.length - 1];
+      observer.observe(lastMovies);
     }
   } catch (err) {
     console.log('Not Similar Movies');
