@@ -1,16 +1,18 @@
 //** === IMPORT === */
 import { API_KEY } from '../secret/secret.js';
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
+let pages = 1;
 const API_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY} `;
-/* const API_CHANGES = `https://api.themoviedb.org/3/movie/changes?api_key=${API_KEY}`; */
-const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+//const API_GENRE = `https://api.themoviedb.org/3/discover/movie/?with_genres=35&api_key=${API_KEY} `;
+//const API_CHANGES = `https://api.themoviedb.org/3/movie/changes?api_key=${API_KEY}`;
+const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=USA&page=${pages} `;
 //** === Variables === */
 const categoriesList = document.querySelector(`#idCategories`);
 const trendingPreview = document.querySelector(`#trendingPreview`);
 const categoriesPreview = document.querySelector(`#categoriesPreview`);
 const headerSection = document.querySelector(`#header`);
 const idGenericList = document.querySelector(`#idGenericList`);
-const idGenericListDiscover = document.querySelector(`#idGenericList`);
+/* const idGenericListDiscover = document.querySelector(`#idGenericList`); */
 const idArrow = document.querySelector(`#idArrow`);
 const idMainArrow = document.querySelector(`#idMainArrow`);
 const arrowHeader = document.querySelector(`.arrow`);
@@ -26,10 +28,21 @@ const idNavBtn = document.querySelector(`#idNavBtn`);
 const logo = document.querySelector(`.logo`);
 const headerUser = document.querySelector(`.header-user`);
 let genericCategories;
+//** === >= Create Intersection Observer <= === */
+let observer = new IntersectionObserver(
+  (entries, observer) => {
+    console.log('Intersection');
+  },
+  {
+    rootMargin: `0px 0px 0px 0px`,
+    threshold: 1.0,
+  }
+);
 
 //**  === >>> Fetch Trending Preview Movies <<< ===  */
 //https://api.themoviedb.org/3/movie/550?api_key=c66eb9e2b42b5d1d179fff7ac34ce71f
-
+/* const [_, categoryData] = location.hash(`=`);
+const [categoryId, categoryName] = categoryData.split(`-`); */
 //** === Categories */
 export const getCategories = async () => {
   try {
@@ -53,7 +66,7 @@ export const getCategories = async () => {
             </button>
           </div>
           `;
-        //location.hash = `#categoriesMovies=` + `${names.id}`;
+        /*  location.hash = `#categoriesMovies=` + `${cat.id}-${cat.name}`; */
       });
       /*  <h3 class="categories-id">${cat.id}</h3> */
       categoriesList.innerHTML = idCategories;
@@ -120,6 +133,8 @@ const returnArrow = () => {
 
 arrowHeaderSpan.addEventListener(`click`, returnArrow);
 
+//** === ===  && Intersection Observer === === */
+
 const IDDiscover = async () => {
   try {
     const response = await fetch(API_DISCOVER, {
@@ -131,19 +146,61 @@ const IDDiscover = async () => {
     const dataDiscover = await response.json();
     //console.log(dataDiscover.results);
 
+    idGenericList.innerHTML = '';
+
     if (response.status === 200) {
       let discoverMovies = ` `;
 
       dataDiscover.results.forEach((discover) => {
         discoverMovies += ` 
         <div class="discover-movies">
-          <h3 class="discover-moviesTitle">${discover.title}</h3>
+          <figure class="discover-figure">
+            <img 
+            id="idImgDiscover" 
+            class="img-discover"
+            src="https://image.tmdb.org/t/p/w500/${discover.poster_path}"
+            alt="${discover.title}"
+            >
+          </figure>
+          <div class="discover-content">
+            <h3 class="discover-moviesTitle">${discover.title}</h3>
+          </div>
         </div>
         `;
+        headerTitle.innerHTML = discover.title;
       });
       idGenericList.innerHTML = discoverMovies;
+      const moviesIntersection = document.querySelectorAll(
+        `.genericList-container .discover-movies`
+      );
+      //console.log(moviesIntersection);
+      let lastMovie = moviesIntersection[moviesIntersection.length - 1];
+      console.log(lastMovie);
     }
   } catch (error) {
     console.log('Error Discover');
   }
 };
+
+/*
+MOVIE
+Action          28
+Adventure       12
+Animation       16
+Comedy          35
+Crime           80
+Documentary     99
+Drama           18
+Family          10751
+Fantasy         14
+History         36
+Horror          27
+Music           10402
+Mystery         9648
+Romance         10749
+Science Fiction 878
+TV Movie        10770
+Thriller        53
+War             10752
+Western         37
+*/

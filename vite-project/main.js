@@ -11,6 +11,10 @@ import { addSimilarMovies } from './src/js/movieDetail.js';
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
 const searchBtn = document.querySelector(`#searchBtn`);
+
+/* const [_, categoryData] = location.hash(`=`);
+const [categoryId, categoryName] = categoryData.split(`-`); */
+
 //*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
 //** === Location & Hash Navigation === */
 //window.addEventListener(`hashchange`, () => console.log(location.hash));

@@ -511,6 +511,16 @@
   .header-arrow:active {
     transform: scale(0.9);
   }
+  .discover-movies {
+    /*  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+    grid-template-columns: repeat(auto-fill, 150px);
+    gap: 1.5rem;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+  }
+  .img-discover {
+    border-radius: 2rem;
+  }
   /* === Footer */
   /*   .footer {
     height: 35rem;
