@@ -5,7 +5,7 @@ let pages = 1;
 const API_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY} `;
 //const API_GENRE = `https://api.themoviedb.org/3/discover/movie/?with_genres=35&api_key=${API_KEY} `;
 //const API_CHANGES = `https://api.themoviedb.org/3/movie/changes?api_key=${API_KEY}`;
-const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pages} `;
+const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&page=${pages} `;
 //** === Variables === */
 const categoriesList = document.querySelector(`#idCategories`);
 const trendingPreview = document.querySelector(`#trendingPreview`);
