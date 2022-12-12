@@ -5,7 +5,7 @@ let pages = 1;
 const API_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY} `;
 //const API_GENRE = `https://api.themoviedb.org/3/discover/movie/?with_genres=35&api_key=${API_KEY} `;
 //const API_CHANGES = `https://api.themoviedb.org/3/movie/changes?api_key=${API_KEY}`;
-const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=USA&page=${pages} `;
+const API_DISCOVER = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${pages} `;
 //** === Variables === */
 const categoriesList = document.querySelector(`#idCategories`);
 const trendingPreview = document.querySelector(`#trendingPreview`);
@@ -28,13 +28,22 @@ const idNavBtn = document.querySelector(`#idNavBtn`);
 const logo = document.querySelector(`.logo`);
 const headerUser = document.querySelector(`.header-user`);
 let genericCategories;
+let lastMovie;
+let discoverMovies = ` `;
+
 //** === >= Create Intersection Observer <= === */
 let observer = new IntersectionObserver(
   (entries, observer) => {
-    console.log('Intersection');
+    console.log(entries);
+    entries.forEach((entriesPlus) => {
+      if (entriesPlus.isIntersecting) {
+        pages++;
+        IDDiscover();
+      }
+    });
   },
   {
-    rootMargin: `0px 0px 0px 0px`,
+    rootMargin: `0px 0px 200px 0px`,
     threshold: 1.0,
   }
 );
@@ -149,8 +158,6 @@ const IDDiscover = async () => {
     idGenericList.innerHTML = '';
 
     if (response.status === 200) {
-      let discoverMovies = ` `;
-
       dataDiscover.results.forEach((discover) => {
         discoverMovies += ` 
         <div class="discover-movies">
@@ -169,13 +176,21 @@ const IDDiscover = async () => {
         `;
         headerTitle.innerHTML = discover.title;
       });
+
       idGenericList.innerHTML = discoverMovies;
-      const moviesIntersection = document.querySelectorAll(
-        `.genericList-container .discover-movies`
-      );
-      //console.log(moviesIntersection);
-      let lastMovie = moviesIntersection[moviesIntersection.length - 1];
-      console.log(lastMovie);
+      if (pages < 1000) {
+        if (lastMovie) {
+          observer.unobserve(lastMovie);
+        }
+
+        const moviesIntersection = document.querySelectorAll(
+          `.genericList-container .discover-movies`
+        );
+        //console.log(moviesIntersection);
+        lastMovie = moviesIntersection[moviesIntersection.length - 1];
+        //console.log(lastMovie);
+        observer.observe(lastMovie);
+      }
     }
   } catch (error) {
     console.log('Error Discover');
