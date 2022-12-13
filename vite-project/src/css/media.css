@@ -163,7 +163,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    height: 35rem;
+    height: 30rem;
     padding-left: 24px;
     padding-bottom: 16px;
   }
@@ -520,6 +520,26 @@
   }
   .img-discover {
     border-radius: 2rem;
+  }
+
+  /* === TV Container === */
+  .sectionTv-container {
+    /* align-items: center; */
+    overflow: hidden;
+  }
+  .tvShowPreview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tvShowPreview {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 30rem;
+    padding-left: 24px;
+    padding-bottom: 16px;
   }
   /* === Footer */
   /*   .footer {

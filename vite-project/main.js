@@ -9,9 +9,11 @@ import { genericMovies } from './src/js/genericList.js';
 import { movieDetailPage } from './src/js/movieDetail.js';
 import { addSimilarMovies } from './src/js/movieDetail.js';
 import { getTvShow } from './src/js/tvShow.js';
+import { searchPlay } from './src/js/search.js';
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
 const searchBtn = document.querySelector(`#searchBtn`);
+const inputPlay = document.querySelector(`#idInput`);
 
 /* const [_, categoryData] = location.hash(`=`);
 const [categoryId, categoryName] = categoryData.split(`-`); */
@@ -33,7 +35,8 @@ const navigationEndpoint = () => {
   }
 
   if (location.hash.startsWith(`#search=`)) {
-    console.log('#Search=');
+    searchPlay();
+    location.hash = `#search=` + inputPlay.value;
   }
 
   if (location.hash.startsWith(`#categoriesMovies`)) {

@@ -38,14 +38,14 @@ export const createSliderMovies = (movies, container) => {
       `src`,
       `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     );
-    const movieText = document.createElement(`div`);
+    /* const movieText = document.createElement(`div`);
     movieText.classList.add(`movie-text`);
     const movieTitle = document.createElement(`h3`);
     movieTitle.classList.add(`title`);
-    movieTitle.setAttribute(`${movie.title}`);
-
+    movieTitle.setAttribute(`${movie.title}`); */
     containerSliderMovie.appendChild(slider);
-    slider.append(figureImg, imgMovie);
+    slider.append(figureImg);
+    figureImg.appendChild(imgMovie);
     container.appendChild(containerSliderMovie);
   });
 };
