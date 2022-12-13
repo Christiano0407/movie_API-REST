@@ -1,15 +1,13 @@
 //**TODO ====  === === Trending === === ==== */
 import { API_KEY } from '../secret/secret.js';
-import { genericMovies } from './genericList.js';
+//import { genericMovies } from './genericList.js';
 import { movieDetailPage } from './movieDetail';
-//*! >>>> Endpoints & Query Parameters === API REST FETCH <<<< */
+//*! === === >>>> Endpoints & Query Parameters === API REST FETCH & Variables <<<< === === */
 const API_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
 const idMoviesContainer = document.querySelector(`#idTrendingPreview`);
 let idMovie;
 
-//*! Variables  */
-
-//** === Trending */
+//** === Trending API CALL === */
 export const getTrendingMovies = async () => {
   try {
     const response = await fetch(API_TRENDING, {
@@ -22,7 +20,7 @@ export const getTrendingMovies = async () => {
     //console.log(data);
     // console.log(data.results[0].id);
     if (response.status === 200) {
-      let trends = ' ';
+      let trends = '';
 
       data.results.forEach((image) => {
         trends += `
@@ -33,7 +31,6 @@ export const getTrendingMovies = async () => {
               </figure>
               <div class="movie-text">
                 <h3 class="title">${image.title}</h3>
-                <span class="paragraph">Calif: ${image.vote_average}</span>
               </div>
           </div>
       </div>

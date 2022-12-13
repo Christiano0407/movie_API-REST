@@ -52,6 +52,9 @@ let observer = new IntersectionObserver(
 //https://api.themoviedb.org/3/movie/550?api_key=c66eb9e2b42b5d1d179fff7ac34ce71f
 /* const [_, categoryData] = location.hash(`=`);
 const [categoryId, categoryName] = categoryData.split(`-`); */
+
+//*TODO === UTILS ===  */
+
 //** === Categories */
 export const getCategories = async () => {
   try {

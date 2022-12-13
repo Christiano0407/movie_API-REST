@@ -14,6 +14,29 @@ const idMainArrow = document.querySelector(`#idMainArrow`);
 const movieContainer = document.querySelector(`.movie-container`);
 const header = document.querySelector(`#header`);
 
+let popularMoviesNew = ``;
+
+//**TODO === UTILS === */
+const createMovies = (movies, container) => {
+  container.innerHTML = '';
+
+  movies.forEach((movie) => {
+    const containerMovie = document.createElement(`div`);
+    containerMovie.classList.add(`moviesPopular-container`);
+    const imgMovie = document.createElement(`img`);
+    imgMovie.classList.add(`moviePopular-img`);
+    imgMovie.setAttribute(`alt`, movie.title);
+    imgMovie.setAttribute(
+      `src`,
+      `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+    );
+
+    containerMovie.appendChild(imgMovie);
+    container.appendChild(containerMovie);
+  });
+};
+
+//** === === >>> Get API Movies <<< === === */
 export const genericMovies = () => {
   getPopularMovies();
   /*   console.log(`#GenericList`); */
@@ -40,10 +63,10 @@ const getPopularMovies = async () => {
       },
     });
     /*  categoriesPreview.innerHTML = ''; */
-
     const dataPopular = await response.json();
-    let popularMoviesNew = ``;
-
+    //console.log(dataPopular.results);
+    createMovies(dataPopular.results, genericList);
+    /*
     dataPopular.results.forEach((popular) => {
       popularMoviesNew += ` 
         <div class="moviesPopular-container">
@@ -54,8 +77,8 @@ const getPopularMovies = async () => {
             />
         </div>
     `;
-    });
-    genericList.innerHTML = popularMoviesNew;
+    }); */
+    //genericList.innerHTML = popularMoviesNew;
   } catch (error) {
     console.log(`Error with Popular Movies`);
   }
