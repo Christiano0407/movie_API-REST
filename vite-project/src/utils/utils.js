@@ -21,7 +21,7 @@ const createMovies = (movies, container) => {
 };
 //createMovies();
 //** <= === === Slider Movies and Tv Shows === === >= */
-const createSliderMovies = (movies, container) => {
+export const createSliderMovies = (movies, container) => {
   container.innerHTML = '';
 
   movies.forEach((movie) => {

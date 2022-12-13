@@ -8,6 +8,7 @@ import { getCategories } from './src/js/categories.js';
 import { genericMovies } from './src/js/genericList.js';
 import { movieDetailPage } from './src/js/movieDetail.js';
 import { addSimilarMovies } from './src/js/movieDetail.js';
+import { getTvShow } from './src/js/tvShow.js';
 //*! ==> Variables <== */
 const idNavBtn = document.querySelector('#idNavBtn');
 const searchBtn = document.querySelector(`#searchBtn`);
@@ -57,7 +58,17 @@ const navigationEndpoint = () => {
     movieDetailPage();
     addSimilarMovies();
   }
+
+  if (location.hash.startsWith(`#tvShow`)) {
+    console.log('#TvShow');
+    getTvShow();
+  }
+
+  // >= Scroll Top Init <=
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 };
+
 //** === HomePage */
 const homePage = () => {
   console.log('#HomePage');
@@ -65,6 +76,7 @@ const homePage = () => {
   getCategories();
   getTrendingMovies();
   idNavBtn.addEventListener('click', addNavigation);
+  getTvShow();
 };
 
 searchBtn.addEventListener(`click`, () => {
