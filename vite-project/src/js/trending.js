@@ -24,16 +24,16 @@ export const getTrendingMovies = async () => {
 
       data.results.forEach((image) => {
         trends += `
-      <div class="movie-container">
-          <div class="slider-trending">
-              <figure class="figure-img">
-                <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
-              </figure>
-              <div class="movie-text">
-                <h3 class="title">${image.title}</h3>
+          <div class="movie-container">
+              <div class="slider-trending">
+                  <figure class="figure-img">
+                    <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
+                  </figure>
+                  <div class="movie-text">
+                    <h3 id="idTextTrending" class="title">${image.title}</h3>
+                  </div>
               </div>
           </div>
-      </div>
       `;
       });
       /*  articleTrendingPreview.append(idMoviesContainer); */

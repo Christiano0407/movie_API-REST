@@ -17,12 +17,20 @@ const user = document.querySelector(`#idUserPlus`);
 const idArrow = document.querySelector(`#idArrowPlus`);
 const idMainArrow = document.querySelector(`#idMainArrowPlus`);
 const btn = document.querySelector(`#idDetailBtn`);
-
+//** === */
 const relatedSimarMovies = document.querySelector(`#relatedSimarMovies`);
 const movieSimilarRelated = document.querySelector(`#movieSimilarRelated`);
 const titleMovieDetail = document.querySelector(`#idMovieDetail`);
 /* console.log(relatedSimarMovies); */
+//** === */
+const movieDetailTitle = document.querySelector(`#idMovieDetail`);
+const movieDetailScore = document.querySelector(`.movieDetail-score`);
+const movieDetailDescription = document.querySelector(
+  `.movieDetail-description`
+);
+const movieCategories = document.querySelector(`.categories-list`);
 
+//** === */
 let lastMovies;
 let similar = ``;
 
