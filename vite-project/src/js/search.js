@@ -1,7 +1,7 @@
 //** === Import Key === */
 import { API_KEY } from '../secret/secret.js';
 //** >= === API REST Search === <= */
-const API_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=avengers&language=en-US`;
+const API_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=marvel&language=en-US`;
 //** === Variables ===  */
 const headerForm = document.querySelector(`#idHeaderForm`);
 const searchFormInput = document.querySelector(`#searchForm`);
@@ -15,6 +15,7 @@ const navBtn = document.querySelector(`#idNavBtn`);
 const arrow = document.querySelector(`.arrow`);
 const arrowHeader = document.querySelector(`.header-arrow`);
 const generalList = document.querySelector(`#idGenericList`);
+const inputPlay = document.querySelector(`#idInput`);
 
 let addSearch = ``;
 
