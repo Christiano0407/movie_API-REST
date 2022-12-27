@@ -24,7 +24,7 @@ export const getTrendingMovies = async () => {
 
       data.results.forEach((image) => {
         trends += `
-          <div class="movie-container">
+          <div class="movie-container  movie-container--loading">
               <div class="slider-trending">
                   <figure class="figure-img">
                     <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">

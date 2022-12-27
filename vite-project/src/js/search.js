@@ -30,7 +30,7 @@ const noneSearch = () => {
   trending.style.display = 'none';
   tvShow.style.display = `none`;
   //generalList.classList.toggle(`active`);
-  generalList.style.display = `flex`;
+  generalList.style.display = `grid`;
 };
 //*! === Export General Function Search */
 export const searchPlay = () => {
@@ -68,7 +68,7 @@ const getSearch = async (API) => {
 
       searchData.results.forEach((search) => {
         addSearch += `
-        <div class="search__container">
+        <div class="search__container  movie-container--loading">
           <figure class="search-figure">
             <img class="search-img" src="https://image.tmdb.org/t/p/w500/${search.poster_path}" 
               alt="${search.title}""

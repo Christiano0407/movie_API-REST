@@ -97,7 +97,7 @@ export const addSimilarMovies = async () => {
 
       data.results.forEach((movie) => {
         similar += `
-          <div class="movieSimilar-Card--container">
+          <div class="movieSimilar-Card--container  movie-container--loading">
             <figure class="figure-similarMovie">
                 <img
                   src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"

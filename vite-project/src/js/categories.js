@@ -72,7 +72,7 @@ export const getCategories = async () => {
 
       categoriesData.genres.forEach((cat) => {
         idCategories += `
-          <div class = "categories-container">
+          <div class = "categories-container  movie-container--loading">
             <button id="idBtnCategories"  class="btnPlus-categories">
               <h3 class="categories-name">${cat.name}</h3>
             </button>
