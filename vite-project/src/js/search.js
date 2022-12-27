@@ -2,13 +2,14 @@
 import { API_KEY } from '../secret/secret.js';
 
 //** >= === API REST Search === <= */
-const API_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=disney&append_to_response=videos&language=en-US`;
+const API_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&append_to_response=videos&language=en-US&query=`;
 
 //** === Variables ===  */
 //const headerForm = document.querySelector(`#idHeaderForm`);
 //const searchFormInput = document.querySelector(`#searchForm`);
 /* const inputPlay = document.querySelector(`#idInput`); */
 const searchBtn = document.querySelector(`#searchBtn`);
+const input = document.querySelector(`#idInput`);
 const navigation = document.querySelector(`#idNav`);
 const categories = document.querySelector(`#categoriesPreview`);
 const trending = document.querySelector(`#trendingPreview`);
@@ -17,8 +18,8 @@ const navBtn = document.querySelector(`#idNavBtn`);
 const arrow = document.querySelector(`.arrow`);
 const arrowHeader = document.querySelector(`.header-arrow`);
 const generalList = document.querySelector(`#idGenericList`);
-const input = document.querySelector(`#idInput`);
 let addSearch = ``;
+//let query;
 
 const noneSearch = () => {
   navigation.style.display = `flex`;
@@ -35,15 +36,24 @@ const noneSearch = () => {
 export const searchPlay = () => {
   //location.hash = `#search=` + inputPlay.value;
   noneSearch();
-  getSearch();
+
+  let inputValue = input.value;
+  console.log(inputValue);
+
+  if (inputValue && inputValue.trim() !== '') {
+    let query = API_SEARCH + inputValue;
+    getSearch(query);
+  } else {
+    getSearch(API_SEARCH);
+  }
 };
 
 searchBtn.addEventListener(`click`, searchPlay);
 
 //*! === Call API Search */}
-const getSearch = async () => {
+const getSearch = async (API) => {
   try {
-    const response = await fetch(API_SEARCH, {
+    const response = await fetch(API, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +63,7 @@ const getSearch = async () => {
     //console.log(searchData.results);
 
     if (response.status === 200) {
-      /*  generalList.innerHTML = ``; */
+      generalList.innerHTML = ``;
       //e.preventDefault();
 
       searchData.results.forEach((search) => {
