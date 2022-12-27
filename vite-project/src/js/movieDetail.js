@@ -36,7 +36,7 @@ let similar = ``;
 
 //** === === >= Create Intersection Observer <= === === */
 let observer = new IntersectionObserver(
-  (entries, observe) => {
+  (entries, observer) => {
     console.log(entries);
     entries.forEach((entriesOne) => {
       if (entriesOne.isIntersecting) {
