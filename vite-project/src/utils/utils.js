@@ -9,7 +9,8 @@ const createMovies = (movies, container) => {
     containerMovie.classList.add(`movie-container`);
     const imgMovie = document.createElement(`img`);
     imgMovie.classList.add(`movie-img`);
-    imgMovie.setAttribute(`alt`, movie.title);
+    imgMovie.setAttribute(`alt`, `${movie.title}`);
+    imgMovie.setAttribute('loading', 'lazy');
     imgMovie.setAttribute(
       `src`,
       `https://image.tmdb.org/t/p/w500/${movie.poster_path}`

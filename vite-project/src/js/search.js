@@ -21,6 +21,12 @@ const generalList = document.querySelector(`#idGenericList`);
 let addSearch = ``;
 //let query;
 
+//** === Intersection Observer && Lazy Loading (Attribute) === */
+/*
+ loading="Lazy"  (Image attribute)
+*/
+
+//** === Display */
 const noneSearch = () => {
   navigation.style.display = `flex`;
   navBtn.style.display = `none`;
@@ -32,7 +38,7 @@ const noneSearch = () => {
   //generalList.classList.toggle(`active`);
   generalList.style.display = `grid`;
 };
-//*! === Export General Function Search */
+//** === Search Movies && Export General Function Search */
 export const searchPlay = () => {
   //location.hash = `#search=` + inputPlay.value;
   noneSearch();
@@ -50,7 +56,7 @@ export const searchPlay = () => {
 
 searchBtn.addEventListener(`click`, searchPlay);
 
-//*! === Call API Search */}
+//** === Call API Search */}
 const getSearch = async (API) => {
   try {
     const response = await fetch(API, {
@@ -70,7 +76,7 @@ const getSearch = async (API) => {
         addSearch += `
         <div class="search__container  movie-container--loading">
           <figure class="search-figure">
-            <img class="search-img" src="https://image.tmdb.org/t/p/w500/${search.poster_path}" 
+            <img id="imgSearch" class="search-img" src="https://image.tmdb.org/t/p/w500/${search.poster_path}" 
               alt="${search.title}""
             >
           </figure>
@@ -81,6 +87,9 @@ const getSearch = async (API) => {
         `;
       });
       generalList.innerHTML = addSearch;
+      const imgSearch = document.querySelector(`#imgSearch`);
+      console.log(imgSearch);
+      imgSearch.setAttribute(`loading`, `lazy`);
     }
   } catch (err) {
     console.log('We have error with search!!');

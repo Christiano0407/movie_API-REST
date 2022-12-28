@@ -27,7 +27,7 @@ export const getTrendingMovies = async () => {
           <div class="movie-container  movie-container--loading">
               <div class="slider-trending">
                   <figure class="figure-img">
-                    <img id="idMovieImg"  class="movie-img" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
+                    <img id="idMovieImg"  class="movie-img" loading="Lazy" src="https://image.tmdb.org/t/p/w500/${image.poster_path}">
                   </figure>
                   <div class="movie-text">
                     <h3 id="idTextTrending" class="title">${image.title}</h3>
