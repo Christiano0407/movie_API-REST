@@ -87,9 +87,13 @@ const getSearch = async (API) => {
         `;
       });
       generalList.innerHTML = addSearch;
-      const imgSearch = document.querySelector(`#imgSearch`);
-      console.log(imgSearch);
+
+      const imgSearch = document.getElementById(`imgSearch`);
       imgSearch.setAttribute(`loading`, `lazy`);
+
+      imgSearch.addEventListener(`error`, () => {
+        imgSearch.setAttribute(`src`, `../img/cyborg-delete.png`);
+      });
     }
   } catch (err) {
     console.log('We have error with search!!');

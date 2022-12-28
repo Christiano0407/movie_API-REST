@@ -54,6 +54,10 @@ export const createSliderMovies = (movies, container, lazyLoad = false) => {
       `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     );
 
+    imgMovie.addEventListener(`error`, () => {
+      imgMovie.setAttribute(`src`, `../img/cyborg-delete.png`);
+    });
+
     if (lazyLoad) {
       observeLazyLoader.observe(imgMovie);
     }
