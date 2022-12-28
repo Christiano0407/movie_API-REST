@@ -18,7 +18,7 @@ export const getTvShow = async () => {
     const dataTv = await res.json();
     /*  console.log(dataTv.results); */
     sectionShowTv.style.display = `flex`;
-    createSliderMovies(dataTv.results, ArticleTv);
+    createSliderMovies(dataTv.results, ArticleTv, true);
   } catch (error) {
     console.log('New Error, get Tv Show');
   }

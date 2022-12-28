@@ -101,6 +101,7 @@ export const addSimilarMovies = async () => {
             <figure class="figure-similarMovie">
                 <img
                   src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
+                  id="movieDetailSimilar"
                   class="movieSimilar-img"
                   alt="movies-Popular"
                 />
@@ -114,6 +115,8 @@ export const addSimilarMovies = async () => {
         `;
       });
       movieSimilarRelated.innerHTML = similar;
+      const imageDetail = document.getElementById(`movieDetailSimilar`);
+      imageDetail.setAttribute(`loading`, `lazy`);
 
       if (pages < 1000) {
         if (lastMovies) {

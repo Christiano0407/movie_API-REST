@@ -1,5 +1,18 @@
 //** === IMPORT === */
 //import { API_KEY } from '../secret/secret.js';
+
+//** ==> === Intersection Observer && Lazy Loading form II === <==  */
+const observeLazyLoader = new IntersectionObserver((entries, observer) => {
+  //console.log(entries);
+  entries.forEach((entry) => {
+    // console.log(entry.target.setAttribute);
+    if (entry.isIntersecting) {
+      const URLLazy = entry.target.getAttribute(`data-src`);
+      entry.target.setAttribute(`src`, URLLazy);
+    }
+  });
+});
+
 //**TODO === UTILS === */
 const createMovies = (movies, container) => {
   container.innerHTML = '';
@@ -10,7 +23,7 @@ const createMovies = (movies, container) => {
     const imgMovie = document.createElement(`img`);
     imgMovie.classList.add(`movie-img`);
     imgMovie.setAttribute(`alt`, `${movie.title}`);
-    imgMovie.setAttribute('loading', 'lazy');
+    /* imgMovie.setAttribute('loading', 'lazy'); */
     imgMovie.setAttribute(
       `src`,
       `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -22,7 +35,7 @@ const createMovies = (movies, container) => {
 };
 //createMovies();
 //** <= === === Slider Movies and Tv Shows === === >= */
-export const createSliderMovies = (movies, container) => {
+export const createSliderMovies = (movies, container, lazyLoad = false) => {
   container.innerHTML = '';
 
   movies.forEach((movie) => {
@@ -36,9 +49,15 @@ export const createSliderMovies = (movies, container) => {
     imgMovie.classList.add(`movie-img`);
     imgMovie.setAttribute(`alt`, movie.title);
     imgMovie.setAttribute(
-      `src`,
+      //`src`,
+      lazyLoad ? `data-src` : `src`,
       `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     );
+
+    if (lazyLoad) {
+      observeLazyLoader.observe(imgMovie);
+    }
+
     /* const movieText = document.createElement(`div`);
     movieText.classList.add(`movie-text`);
     const movieTitle = document.createElement(`h3`);
