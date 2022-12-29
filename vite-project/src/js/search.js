@@ -1,8 +1,11 @@
 //** === Import Key === */
 import { API_KEY } from '../secret/secret.js';
 
+//** === Page */
+let pages = 1;
+
 //** >= === API REST Search === <= */
-const API_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&append_to_response=videos&language=en-US&query=`;
+const API_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&append_to_response=videos&language=en-US&page=${pages}&query=`;
 
 //** === Variables ===  */
 //const headerForm = document.querySelector(`#idHeaderForm`);
@@ -18,13 +21,28 @@ const navBtn = document.querySelector(`#idNavBtn`);
 const arrow = document.querySelector(`.arrow`);
 const arrowHeader = document.querySelector(`.header-arrow`);
 const generalList = document.querySelector(`#idGenericList`);
-let addSearch = ``;
 //let query;
+let lastMovie;
+let addSearch = ``;
 
 //** === Intersection Observer && Lazy Loading (Attribute) === */
 /*
  loading="Lazy"  (Image attribute)
 */
+/* let observerButton = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        pages++;
+        getSearch();
+      }
+    });
+  },
+  {
+    rootMargin: `0px 0px 200px 0px`,
+    threshold: 1.0,
+  }
+); */
 
 //** === Display */
 const noneSearch = () => {
@@ -53,7 +71,6 @@ export const searchPlay = () => {
     getSearch(API_SEARCH);
   }
 };
-
 searchBtn.addEventListener(`click`, searchPlay);
 
 //** === Call API Search */}
@@ -80,13 +97,16 @@ const getSearch = async (API) => {
               alt="${search.title}""
             >
           </figure>
-          <div class="search__container--content">
-            <h3 class="search-title">${search.title}</h3>
-          </div>
         </div>
         `;
       });
       generalList.innerHTML = addSearch;
+
+      const buttonPlus = document.createElement(`button`);
+      buttonPlus.classList.add(`btn-page`);
+      buttonPlus.textContent = `+`;
+
+      generalList.appendChild(buttonPlus);
 
       const imgSearch = document.getElementById(`imgSearch`);
       imgSearch.setAttribute(`loading`, `lazy`);
@@ -94,6 +114,20 @@ const getSearch = async (API) => {
       imgSearch.addEventListener(`error`, () => {
         imgSearch.setAttribute(`src`, `../img/cyborg-delete.png`);
       });
+      /* buttonPlus.addEventListener(`click`, () => {
+        console.log('Now');
+        if (pages < 1000) {
+          if (lastMovie) {
+            observerButton.unobserve(lastMovie);
+          }
+
+          const moviesIntersection = document.querySelectorAll(
+            `.genericList-container .search__container `
+          );
+          lastMovie = moviesIntersection[moviesIntersection.length - 1];
+          observerButton.observe(lastMovie);
+        }
+      }); */
     }
   } catch (err) {
     console.log('We have error with search!!');
@@ -107,5 +141,4 @@ const returnSearch = () => {
   //window.history.back();
   //history.back();
 };
-
 arrowHeader.addEventListener(`click`, returnSearch);

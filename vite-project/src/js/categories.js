@@ -181,6 +181,7 @@ const IDDiscover = async () => {
       });
 
       idGenericList.innerHTML = discoverMovies;
+
       if (pages < 1000) {
         if (lastMovie) {
           observer.unobserve(lastMovie);

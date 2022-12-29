@@ -542,6 +542,21 @@
     padding-left: 24px;
     padding-bottom: 16px;
   }
+
+  .btn-page {
+    position: fixed;
+    padding: 1.5rem 2rem;
+    right: 5%;
+    bottom: 5%;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+  }
+  .search-img {
+    aspect-ratio: 0.5;
+    border-radius: 2rem;
+  }
+
   /* === Footer */
   /*   .footer {
     height: 35rem;
