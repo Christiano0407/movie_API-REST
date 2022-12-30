@@ -58,6 +58,15 @@ export const createSliderMovies = (movies, container, lazyLoad = false) => {
       imgMovie.setAttribute(`src`, `../img/cyborg-delete.png`);
     });
 
+    const movieBtn = document.createElement(`button`);
+    movieBtn.classList.add(`movie-btn`);
+    /*  movieBtn.textContent = 'Liked'; */
+    movieBtn.addEventListener(`click`, (e) => {
+      e.stopPropagation(); // evitar la propagacion de eventos
+      movieBtn.classList.toggle(`movie-btn--liked`);
+      // ==> LocalStorage
+    });
+
     if (lazyLoad) {
       observeLazyLoader.observe(imgMovie);
     }
@@ -68,7 +77,7 @@ export const createSliderMovies = (movies, container, lazyLoad = false) => {
     movieTitle.classList.add(`title`);
     movieTitle.setAttribute(`${movie.title}`); */
     containerSliderMovie.appendChild(slider);
-    slider.append(figureImg);
+    slider.append(figureImg, movieBtn);
     figureImg.appendChild(imgMovie);
     container.appendChild(containerSliderMovie);
   });

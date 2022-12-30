@@ -139,11 +139,13 @@
     flex-direction: column;
   }
 
-  .trendingPreview-container {
+  .trendingPreview-container,
+  .liked-container {
     align-items: center;
     overflow: hidden;
   }
-  .trendingPreview-header {
+  .trendingPreview-header,
+  .liked-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -151,7 +153,8 @@
     /* flex-direction: column; */
     padding: 0.5rem;
   }
-  .trendingPreview-title {
+  .trendingPreview-title,
+  .liked-title {
     font-size: 1.8rem;
     font-weight: 900;
   }
@@ -159,11 +162,12 @@
     padding: 0.5rem;
   }
 
-  .trendingPreview-movieList {
+  .trendingPreview-movieList,
+  .liked-movieList {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    height: 30rem;
+    height: 32.5rem;
     padding-left: 24px;
     padding-bottom: 16px;
   }
@@ -184,6 +188,7 @@
   .movie-container {
     display: inline-block;
     margin-right: 8px;
+    position: relative;
   }
   /* .slider-trending {
   } */
@@ -555,6 +560,33 @@
   .search-img {
     aspect-ratio: 0.5;
     border-radius: 2rem;
+  }
+  .btnMovie-liked {
+    padding: 0.5rem;
+  }
+  /* === BTN Utl Liked*/
+  .movie-btn {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    right: 1.5rem;
+    bottom: 2rem;
+    font-size: 1rem;
+    border-radius: 50%;
+  }
+  .movie-btn::before {
+    content: '🤍';
+    font-size: 1.4rem;
+  }
+  /* === Movie Btn Liked === */
+  .movie-btn--liked {
+    background: var(--background-color-rose);
+    box-shadow: 0px 0px 0px 2px var(--background-color-rose);
+  }
+  .movie-btn--liked::before {
+    content: '💜';
   }
 
   /* === Footer */
