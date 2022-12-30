@@ -1,6 +1,9 @@
 //** === IMPORT === */
 //import { API_KEY } from '../secret/secret.js';
 
+//** === Local Storage */
+let imgStorage = [];
+
 //** ==> === Intersection Observer && Lazy Loading form II === <==  */
 const observeLazyLoader = new IntersectionObserver((entries, observer) => {
   //console.log(entries);
@@ -53,6 +56,8 @@ export const createSliderMovies = (movies, container, lazyLoad = false) => {
       lazyLoad ? `data-src` : `src`,
       `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     );
+    const likedSection = document.querySelector(`#idLiked`);
+    const likedArticle = document.querySelector(`#likedArticle`);
 
     imgMovie.addEventListener(`error`, () => {
       imgMovie.setAttribute(`src`, `../img/cyborg-delete.png`);
@@ -63,8 +68,20 @@ export const createSliderMovies = (movies, container, lazyLoad = false) => {
     /*  movieBtn.textContent = 'Liked'; */
     movieBtn.addEventListener(`click`, (e) => {
       e.stopPropagation(); // evitar la propagacion de eventos
-      movieBtn.classList.toggle(`movie-btn--liked`);
+      movieBtn.classList.add(`movie-btn--liked`);
       // ==> LocalStorage
+      if (movieBtn.classList.contains(`movie-btn--liked`)) {
+        console.log('Add New Movie');
+        localStorage.setItem(`MyMovies`, movie.poster_path);
+      }
+
+      const myListMovies = localStorage.getItem(`MyMovies`);
+      console.log(myListMovies);
+
+      imgStorage.push(myListMovies);
+
+      console.log(imgStorage);
+      console.log(localStorage);
     });
 
     if (lazyLoad) {
