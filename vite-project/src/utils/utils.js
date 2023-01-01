@@ -68,20 +68,19 @@ export const createSliderMovies = (movies, container, lazyLoad = false) => {
     /*  movieBtn.textContent = 'Liked'; */
     movieBtn.addEventListener(`click`, (e) => {
       e.stopPropagation(); // evitar la propagacion de eventos
+      //movieBtn.classList.toggle(`movie-btn--liked`);
       movieBtn.classList.add(`movie-btn--liked`);
       // ==> LocalStorage
       if (movieBtn.classList.contains(`movie-btn--liked`)) {
-        console.log('Add New Movie');
-        localStorage.setItem(`MyMovies`, movie.poster_path);
+        //console.log('Add New Movie');
+        localStorage.setItem(`MyMovies`, JSON.stringify(movie.poster_path));
       }
 
-      const myListMovies = localStorage.getItem(`MyMovies`);
+      const myListMovies = JSON.parse(localStorage.getItem(`MyMovies`));
       console.log(myListMovies);
-
-      imgStorage.push(myListMovies);
-
-      console.log(imgStorage);
       console.log(localStorage);
+      imgStorage.push(myListMovies);
+      console.log(imgStorage);
     });
 
     if (lazyLoad) {
